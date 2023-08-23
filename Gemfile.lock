@@ -1,0 +1,21 @@
+PATH
+  remote: .
+  specs:
+    turbo-native-initializer (0.1.0)
+      thor
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (13.0.6)
+    thor (1.2.2)
+
+PLATFORMS
+  x86_64-darwin-22
+
+DEPENDENCIES
+  rake (~> 13.0)
+  turbo-native-initializer!
+
+BUNDLED WITH
+   2.4.19

@@ -1,0 +1,1 @@
+require "turbo-native-initializer"
