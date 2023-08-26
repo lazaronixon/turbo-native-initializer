@@ -18,6 +18,16 @@ $ cd AwesomeProject
 $ xed .
 ```
 
+Android (Android Studio is required)
+
+To be able to open projects from terminal, open Android Studio and click on `Tools -> Create Command-line Launcher...`.
+
+```
+$ turbo-native-initializer AwesomeProject --platform=android
+$ cd AwesomeProject
+$ studio .
+```
+
 For more options check --help.
 
 ```

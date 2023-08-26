@@ -25,6 +25,8 @@ module TurboNativeInitializer
         template  "ios_stack/TurboNativeProject/TurboNativeProject.swift", "#{name}/#{name}/#{name}.swift"
         # /TurboNativeProject/TurboNativeProject.codeproj
         directory "ios_stack/TurboNativeProject.xcodeproj", "#{name}/#{name}.xcodeproj"
+      elsif options[:platform] == "android" && options[:navigation] == "stack"
+        
       else
         say "Template not implemented yet... =/"
       end
