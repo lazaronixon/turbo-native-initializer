@@ -26,7 +26,7 @@ module TurboNativeInitializer
         # /TurboNativeProject/TurboNativeProject.codeproj
         directory "ios_stack/TurboNativeProject.xcodeproj", "#{name}/#{name}.xcodeproj"
       else
-        say "Template not implemented"
+        say "Template not implemented yet... =/"
       end
     end
   end

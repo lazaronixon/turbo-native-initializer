@@ -10,7 +10,7 @@ $ gem install turbo-native-initializer
 
 ## Quick Start
 
-iOS
+iOS (Xcode is required)
 
 ```
 $ turbo-native-initializer AwesomeProject --platform=ios
