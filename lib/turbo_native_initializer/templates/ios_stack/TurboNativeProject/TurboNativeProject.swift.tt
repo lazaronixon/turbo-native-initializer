@@ -1,0 +1,10 @@
+import Foundation
+
+struct <%= name %> {
+    static let development = URL(string: "http://localhost:3000")!
+    static let production  = URL(string: "https://turbo-native-demo.glitch.me")!
+
+    static var current: URL {
+        development
+    }
+}
