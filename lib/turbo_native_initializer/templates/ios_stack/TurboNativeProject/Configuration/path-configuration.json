@@ -1,0 +1,9 @@
+{
+  "rules": [
+    { "patterns": ["/recede_historical_location"], "properties": { "presentation": "pop" } },
+    { "patterns": ["/refresh_historical_location"], "properties": { "presentation": "refresh" } },
+    { "patterns": ["/resume_historical_location"], "properties": { "presentation": "none" } },
+    { "patterns": ["/new$", "/edit$", "/signin$", "/modal"], "properties": { "presentation": "modal" } },
+    { "patterns": ["^/$"], "properties": { "presentation": "clear_all" } }
+  ]
+}

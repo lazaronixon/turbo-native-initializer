@@ -3,31 +3,48 @@ import UIKit
 import Turbo
 
 class TurboNavigationController : UINavigationController {
-    
+
     var session: Session!
     var modalSession: Session!
-    
+
     func push(url: URL) {
         let properties = session.pathConfiguration?.properties(for: url) ?? [:]
         route(url: url, options: VisitOptions(action: .advance), properties: properties)
     }
-    
+
     func route(url: URL, options: VisitOptions, properties: PathProperties) {
         // This is a simplified version of how you might build out the routing
         // and navigation functions of your app. In a real app, these would be separate objects
-        
+
         // Dismiss any modals when receiving a new navigation
         if presentedViewController != nil {
             dismiss(animated: true)
         }
-        
-        // Special case of navigating home, issue a reload
-        if url.path == "/", !viewControllers.isEmpty {
-            popViewController(animated: false)
+
+        // Pops a location off the nav stack
+        if isPop(properties) {
+            popViewController(animated: true)
+            return
+        }
+
+        // Clears the entire back stack and retains the start destination for the nav host
+        if isClearAll(properties) {
+            popToRootViewController(animated: true)
             session.reload()
             return
         }
-        
+
+        // Will force a reload of the current location and clear out any saved visit options
+        if isRefresh(properties) {
+            session.reload()
+            return
+        }
+
+        // Will result in no navigation action being taken
+        if isNone(properties) {
+            return
+        }
+
         // - Create view controller appropriate for url/properties
         // - Navigate to that with the correct presentation
         // - Initiate the visit with Turbo
@@ -38,20 +55,40 @@ class TurboNavigationController : UINavigationController {
 }
 
 extension TurboNavigationController {
-    
     private func isModal(_ properties: PathProperties) -> Bool {
-        // For simplicity, we're using string literals for various keys and values of the path configuration
-        // but most likely you'll want to define your own enums these properties
-        let presentation = properties["presentation"] as? String
-        return presentation == "modal"
+        return properties["presentation"] as? String == "modal"
     }
-    
+
+    private func isPop(_ properties: PathProperties) -> Bool {
+        return properties["presentation"] as? String == "pop"
+    }
+
+    private func isReplace(_ properties: PathProperties) -> Bool {
+        return properties["presentation"] as? String == "replace"
+    }
+
+    private func isReplaceRoot(_ properties: PathProperties) -> Bool {
+        return properties["presentation"] as? String == "replace_root"
+    }
+
+    private func isClearAll(_ properties: PathProperties) -> Bool {
+        return properties["presentation"] as? String == "clear_all"
+    }
+
+    private func isRefresh(_ properties: PathProperties) -> Bool {
+        return properties["presentation"] as? String == "refresh"
+    }
+
+    private func isNone(_ properties: PathProperties) -> Bool {
+        return properties["presentation"] as? String == "none"
+    }
+
     private func makeViewController(for url: URL, properties: PathProperties = [:]) -> UIViewController {
         // There are many options for determining how to map urls to view controllers
         // The demo uses the path configuration for determining which view controller and presentation
         // to use, but that's completely optional. You can use whatever logic you prefer to determine
         // how you navigate and route different URLs.
-        
+
         if let viewController = properties["view-controller"] as? String {
             switch viewController {
             case "numbers":
@@ -60,31 +97,28 @@ extension TurboNavigationController {
                 assertionFailure("Invalid view controller, defaulting to WebView")
             }
         }
-            
+
         return ViewController(url: url)
     }
-    
+
     private func navigate(to viewController: UIViewController, action: VisitAction, properties: PathProperties = [:], animated: Bool = true) {
-        // We support three types of navigation in the app: advance, replace, and modal
-        
         if isModal(properties) {
-            if viewController is UIAlertController {
-                present(viewController, animated: animated, completion: nil)
-            } else {
-                let modalNavController = UINavigationController(rootViewController: viewController)
-                present(modalNavController, animated: animated)
-            }
-        } else if action == .replace {
-            let viewControllers = Array(viewControllers.dropLast()) + [viewController]
-            setViewControllers(viewControllers, animated: false)
+            let modalNavController = UINavigationController(rootViewController: viewController)
+            modalNavController.modalPresentationStyle = .fullScreen
+
+            present(modalNavController, animated: animated)
+        } else if isReplaceRoot(properties) {
+            setViewControllers([viewController], animated: false)
+        } else if isReplace(properties) || action == .replace {
+            setViewControllers(Array(viewControllers.dropLast()) + [viewController], animated: false)
         } else {
             pushViewController(viewController, animated: animated)
         }
     }
-    
+
     private func visit(viewController: UIViewController, with options: VisitOptions, modal: Bool = false) {
         guard let visitable = viewController as? Visitable else { return }
-        
+
         // Each Session corresponds to a single web view. A good rule of thumb
         // is to use a session per navigation stack. Here we're using a different session
         // when presenting a modal. We keep that around for any modal presentations so

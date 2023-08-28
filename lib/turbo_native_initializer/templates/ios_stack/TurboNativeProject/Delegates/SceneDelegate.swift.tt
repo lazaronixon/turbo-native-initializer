@@ -7,7 +7,7 @@ final class SceneDelegate: UIResponder {
     private static var sharedProcessPool = WKProcessPool()
 
     var window: UIWindow?
-    private let rootURL = <%= name %>.current
+    private let rootURL = <%= name %>.homeURL
     private var navigationController: TurboNavigationController!
 
     // MARK: - Setup
@@ -35,7 +35,7 @@ final class SceneDelegate: UIResponder {
     // MARK: - Authentication
 
     private func promptForAuthentication() {
-        let authURL = rootURL.appendingPathComponent("/signin")
+        let authURL = <%= name %>.signInURL
         let properties = pathConfiguration.properties(for: authURL)
         navigationController.route(url: authURL, options: VisitOptions(), properties: properties)
     }

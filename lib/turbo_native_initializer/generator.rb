@@ -20,13 +20,12 @@ module TurboNativeInitializer
         directory "ios_stack/TurboNativeProject/Controllers", "#{name}/#{name}/Controllers"
         directory "ios_stack/TurboNativeProject/Delegates", "#{name}/#{name}/Delegates"
         directory "ios_stack/TurboNativeProject/Resources", "#{name}/#{name}/Resources"
-        copy_file "ios_stack/TurboNativeProject/Info.plist", "#{name}/#{name}/Info.plist"
-        copy_file "ios_stack/TurboNativeProject/path-configuration.json", "#{name}/#{name}/path-configuration.json"
+        directory "ios_stack/TurboNativeProject/Configuration", "#{name}/#{name}/Configuration"
         template  "ios_stack/TurboNativeProject/TurboNativeProject.swift", "#{name}/#{name}/#{name}.swift"
         # /TurboNativeProject/TurboNativeProject.codeproj
         directory "ios_stack/TurboNativeProject.xcodeproj", "#{name}/#{name}.xcodeproj"
       elsif options[:platform] == "android" && options[:navigation] == "stack"
-        
+
       else
         say "Template not implemented yet... =/"
       end

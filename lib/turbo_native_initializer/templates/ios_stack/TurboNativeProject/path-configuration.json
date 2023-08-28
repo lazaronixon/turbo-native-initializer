@@ -1,6 +1,0 @@
-{
-  "rules": [
-    { "patterns": ["/new$", "/edit$", "/signin$"], "properties": { "presentation": "modal" } },
-    { "patterns": ["/numbers$"], "properties": { "view-controller": "numbers" } }
-  ]
-}
