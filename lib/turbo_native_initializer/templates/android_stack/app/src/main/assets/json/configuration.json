@@ -1,0 +1,11 @@
+{
+  "settings": [],
+  "rules": [
+    { "patterns": [".*"], "properties": { "uri": "turbo://fragment/web", "pull_to_refresh_enabled": true } },
+    { "patterns": ["^$", "^/$"], "properties": { "uri": "turbo://fragment/web/home", "pull_to_refresh_enabled": true, "presentation": "clear_all" } },
+    { "patterns": ["/new$", "/edit$", "/signin$", "/modal"], "properties": { "context": "modal", "uri": "turbo://fragment/web/modal" } },
+    { "patterns": ["/recede_historical_location"], "properties": { "presentation": "pop" } },
+    { "patterns": ["/refresh_historical_location"], "properties": { "presentation": "refresh" } },
+    { "patterns": ["/resume_historical_location"], "properties": { "presentation": "none" } }
+  ]
+}

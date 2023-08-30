@@ -6,4 +6,5 @@
 /pkg/
 /spec/reports/
 /tmp/
+xcuserdata/
 .DS_Store

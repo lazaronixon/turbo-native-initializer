@@ -16,19 +16,25 @@ module TurboNativeInitializer
 
     def copy_template_files
       if options[:platform] == "ios" && options[:navigation] == "stack"
-        # /TurboNativeProject/TurboNativeProject/...
-        directory "ios_stack/TurboNativeProject/Controllers", "#{name}/#{name}/Controllers"
-        directory "ios_stack/TurboNativeProject/Delegates", "#{name}/#{name}/Delegates"
-        directory "ios_stack/TurboNativeProject/Resources", "#{name}/#{name}/Resources"
-        directory "ios_stack/TurboNativeProject/Configuration", "#{name}/#{name}/Configuration"
-        template  "ios_stack/TurboNativeProject/TurboNativeProject.swift", "#{name}/#{name}/#{name}.swift"
-        # /TurboNativeProject/TurboNativeProject.codeproj
-        directory "ios_stack/TurboNativeProject.xcodeproj", "#{name}/#{name}.xcodeproj"
+        directory "ios_stack", name
+        rename_file "#{name}/TurboNativeProject.xcodeproj", "#{name}/#{name}.xcodeproj"
+        rename_file "#{name}/TurboNativeProject/TurboNativeProject.swift", "#{name}/TurboNativeProject/#{name}.swift"
+        rename_file "#{name}/TurboNativeProject", "#{name}/#{name}"
       elsif options[:platform] == "android" && options[:navigation] == "stack"
-
+        directory "android_stack", name
+        rename_file "#{name}/app/src/main/java/dev/hotwire/turbo/turbonativeproject", "#{name}/app/src/main/java/dev/hotwire/turbo/#{name.downcase}"
       else
         say "Template not implemented yet... =/"
       end
     end
+
+    private
+      def rename_file(old_name, new_name)
+        say_status :rename, "#{old_name} to #{new_name}"
+
+        old_name = File.expand_path(old_name, destination_root)
+        new_name = File.expand_path(new_name, destination_root)
+        File.rename(old_name, new_name)
+      end
   end
 end
