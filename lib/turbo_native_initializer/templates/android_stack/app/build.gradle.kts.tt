@@ -40,5 +40,5 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.browser:browser:1.5.0")
     implementation("com.google.android.material:material:1.9.0")
-    implementation("dev.hotwire:turbo:7.0.0-rc18")
+    implementation("dev.hotwire:turbo:7.0.0")
 }

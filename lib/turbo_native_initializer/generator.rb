@@ -30,6 +30,9 @@ module TurboNativeInitializer
         template  "android_stack/app/build.gradle.kts", "#{name}/app/build.gradle.kts"
         copy_file "android_stack/app/proguard-rules.pro", "#{name}/app/proguard-rules.pro"
 
+        # android_stack/app/src/debug
+        directory "android_stack/app/src/debug", "#{name}/app/src/debug"
+
         # android_stack/app/src/main
         directory "android_stack/app/src/main/assets", "#{name}/app/src/main/assets"
         directory "android_stack/app/src/main/java/dev/hotwire/turbo/turbonativeproject", "#{name}/app/src/main/java/#{package_path}"
