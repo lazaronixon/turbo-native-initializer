@@ -9,7 +9,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_nav_host"
-        android:name="dev.hotwire.turbo.<%= name.downcase %>.main.MainSessionNavHostFragment"
+        android:name="<%= package_name %>.main.MainSessionNavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="false" />

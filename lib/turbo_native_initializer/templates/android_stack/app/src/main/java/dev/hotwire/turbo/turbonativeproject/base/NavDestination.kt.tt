@@ -1,4 +1,4 @@
-package dev.hotwire.turbo.<%= name.downcase %>.base
+package <%= package_name %>.base
 
 import android.net.Uri
 import android.view.MenuItem
@@ -9,8 +9,8 @@ import androidx.navigation.NavOptions
 import androidx.navigation.navOptions
 import dev.hotwire.turbo.config.TurboPathConfigurationProperties
 import dev.hotwire.turbo.config.context
-import dev.hotwire.turbo.<%= name.downcase %>.R
-import dev.hotwire.turbo.<%= name.downcase %>.util.CURRENT_URL
+import <%= package_name %>.R
+import <%= package_name %>.util.CURRENT_URL
 import dev.hotwire.turbo.nav.TurboNavDestination
 import dev.hotwire.turbo.nav.TurboNavPresentationContext.MODAL
 

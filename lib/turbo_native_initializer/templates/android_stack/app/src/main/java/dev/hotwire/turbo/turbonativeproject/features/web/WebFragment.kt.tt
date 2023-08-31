@@ -1,10 +1,10 @@
-package dev.hotwire.turbo.<%= name.downcase %>.features.web
+package <%= package_name %>.features.web
 
 import android.os.Bundle
 import android.view.View
-import dev.hotwire.turbo.<%= name.downcase %>.R
-import dev.hotwire.turbo.<%= name.downcase %>.base.NavDestination
-import dev.hotwire.turbo.<%= name.downcase %>.util.SIGN_IN_URL
+import <%= package_name %>.R
+import <%= package_name %>.base.NavDestination
+import <%= package_name %>.util.SIGN_IN_URL
 import dev.hotwire.turbo.fragments.TurboWebFragment
 import dev.hotwire.turbo.nav.TurboNavGraphDestination
 import dev.hotwire.turbo.visit.TurboVisitAction.REPLACE

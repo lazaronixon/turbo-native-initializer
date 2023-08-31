@@ -1,10 +1,10 @@
-package dev.hotwire.turbo.<%= name.downcase %>.main
+package <%= package_name %>.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dev.hotwire.turbo.activities.TurboActivity
 import dev.hotwire.turbo.delegates.TurboActivityDelegate
-import dev.hotwire.turbo.<%= name.downcase %>.R
+import <%= package_name %>.R
 
 class MainActivity : AppCompatActivity(), TurboActivity {
     override lateinit var delegate: TurboActivityDelegate

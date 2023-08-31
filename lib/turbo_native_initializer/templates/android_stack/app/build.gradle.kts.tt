@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "dev.hotwire.turbo.<%= name.downcase %>"
+    namespace = "<%= package_name %>"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "dev.hotwire.turbo.<%= name.downcase %>"
+        applicationId = "<%= package_name %>"
         minSdk = 24
         targetSdk = 33
         versionCode = 1

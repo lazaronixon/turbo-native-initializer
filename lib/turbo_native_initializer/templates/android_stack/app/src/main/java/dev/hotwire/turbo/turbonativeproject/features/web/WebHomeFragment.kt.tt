@@ -1,10 +1,10 @@
-package dev.hotwire.turbo.<%= name.downcase %>.features.web
+package <%= package_name %>.features.web
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import dev.hotwire.turbo.<%= name.downcase %>.R
+import <%= package_name %>.R
 import dev.hotwire.turbo.nav.TurboNavGraphDestination
 
 @TurboNavGraphDestination(uri = "turbo://fragment/web/home")
