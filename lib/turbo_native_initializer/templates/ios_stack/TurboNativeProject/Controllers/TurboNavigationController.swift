@@ -21,36 +21,15 @@ class TurboNavigationController : UINavigationController {
             dismiss(animated: true)
         }
 
-        // Pops a location off the nav stack
-        if isPop(properties) {
-            popViewController(animated: true)
-            return
-        }
-
-        // Clears the entire back stack and retains the start destination for the nav host
-        if isClearAll(properties) {
-            popToRootViewController(animated: true)
-            session.reload()
-            return
-        }
-
-        // Will force a reload of the current location and clear out any saved visit options
-        if isRefresh(properties) {
-            session.reload()
-            return
-        }
-
-        // Will result in no navigation action being taken
-        if isNone(properties) {
-            return
-        }
-
         // - Create view controller appropriate for url/properties
         // - Navigate to that with the correct presentation
-        // - Initiate the visit with Turbo
         let viewController = makeViewController(for: url, properties: properties)
         navigate(to: viewController, action: options.action, properties: properties)
-        visit(viewController: viewController, with: options, modal: isModal(properties))
+
+        // - Initiate the visit with Turbo
+        if isVisitable(properties) {
+            visit(viewController: viewController, with: options)
+        }
     }
 }
 
@@ -59,20 +38,12 @@ extension TurboNavigationController {
         return properties["presentation"] as? String == "modal"
     }
 
+    private func isClearAll(_ properties: PathProperties) -> Bool {
+        return properties["presentation"] as? String == "clear-all"
+    }
+
     private func isPop(_ properties: PathProperties) -> Bool {
         return properties["presentation"] as? String == "pop"
-    }
-
-    private func isReplace(_ properties: PathProperties) -> Bool {
-        return properties["presentation"] as? String == "replace"
-    }
-
-    private func isReplaceRoot(_ properties: PathProperties) -> Bool {
-        return properties["presentation"] as? String == "replace_root"
-    }
-
-    private func isClearAll(_ properties: PathProperties) -> Bool {
-        return properties["presentation"] as? String == "clear_all"
     }
 
     private func isRefresh(_ properties: PathProperties) -> Bool {
@@ -81,6 +52,18 @@ extension TurboNavigationController {
 
     private func isNone(_ properties: PathProperties) -> Bool {
         return properties["presentation"] as? String == "none"
+    }
+
+    private func isReplaceAll(_ properties: PathProperties) -> Bool {
+        return properties["presentation"] as? String == "replace-all"
+    }
+
+    private func isReplace(_ properties: PathProperties) -> Bool {
+        return properties["presentation"] as? String == "replace"
+    }
+
+    private func isVisitable(_ properties: PathProperties) -> Bool {
+        return properties["visitable"] as? Bool ?? true
     }
 
     private func makeViewController(for url: URL, properties: PathProperties = [:]) -> UIViewController {
@@ -102,12 +85,20 @@ extension TurboNavigationController {
     }
 
     private func navigate(to viewController: UIViewController, action: VisitAction, properties: PathProperties = [:], animated: Bool = true) {
-        if isModal(properties) {
-            let modalNavController = UINavigationController(rootViewController: viewController)
-            modalNavController.modalPresentationStyle = .fullScreen
+        let modalNavController = UINavigationController(rootViewController: viewController)
+        modalNavController.modalPresentationStyle = .fullScreen
 
+        if isModal(properties) {
             present(modalNavController, animated: animated)
-        } else if isReplaceRoot(properties) {
+        } else if isClearAll(properties) {
+            popToRootViewController(animated: true)
+        } else if isPop(properties) {
+            popViewController(animated: true)
+        } else if isRefresh(properties) {
+            session.reload()
+        } else if isNone(properties) {
+            // Will result in no navigation action being taken
+        } else if isReplaceAll(properties) {
             setViewControllers([viewController], animated: false)
         } else if isReplace(properties) || action == .replace {
             setViewControllers(Array(viewControllers.dropLast()) + [viewController], animated: false)

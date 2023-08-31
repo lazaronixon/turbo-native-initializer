@@ -1,9 +1,10 @@
 {
+  "settings": {},
   "rules": [
-    { "patterns": ["/recede_historical_location"], "properties": { "presentation": "pop" } },
-    { "patterns": ["/refresh_historical_location"], "properties": { "presentation": "refresh" } },
-    { "patterns": ["/resume_historical_location"], "properties": { "presentation": "none" } },
-    { "patterns": ["/new$", "/edit$", "/signin$", "/modal"], "properties": { "presentation": "modal" } },
-    { "patterns": ["^/$"], "properties": { "presentation": "clear_all" } }
+    { "patterns": ["/refresh_historical_location"], "properties": { "presentation": "refresh", "visitable": false } },
+    { "patterns": ["/recede_historical_location"], "properties": { "presentation": "pop", "visitable": false } },
+    { "patterns": ["/resume_historical_location"], "properties": { "presentation": "none", "visitable": false } },
+    { "patterns": ["^/$"], "properties": { "presentation": "replace-all" } },
+    { "patterns": ["/new$", "/edit$", "/signin$"], "properties": { "presentation": "modal" } }
   ]
 }

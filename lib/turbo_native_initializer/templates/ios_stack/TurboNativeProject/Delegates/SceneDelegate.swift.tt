@@ -13,23 +13,13 @@ final class SceneDelegate: UIResponder {
     // MARK: - Setup
 
     private func configureRootViewController() {
-        guard let window = window else {
-            fatalError()
-        }
+        guard let window = window else { fatalError() }
 
         window.tintColor = UIColor(named: "Tint")
 
-        let turboNavController: TurboNavigationController
-        if let navController = window.rootViewController as? TurboNavigationController {
-            turboNavController = navController
-            navigationController = navController
-        } else {
-            turboNavController = TurboNavigationController()
-            window.rootViewController = turboNavController
-        }
-
-        turboNavController.session = session
-        turboNavController.modalSession = modalSession
+        navigationController = (window.rootViewController as! TurboNavigationController)
+        navigationController.session = session
+        navigationController.modalSession = modalSession
     }
 
     // MARK: - Authentication
@@ -138,7 +128,6 @@ extension SceneDelegate: WKNavigationDelegate {
         }
     }
 }
-
 
 extension SceneDelegate: WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
