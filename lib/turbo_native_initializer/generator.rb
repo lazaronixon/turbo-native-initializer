@@ -17,66 +17,69 @@ module TurboNativeInitializer
     end
 
     def copy_template_files
-      if ios_stack?
-        directory "ios_stack/TurboNativeProject/Configuration", "#{name}/#{name}/Configuration"
-        directory "ios_stack/TurboNativeProject/Controllers", "#{name}/#{name}/Controllers"
-        directory "ios_stack/TurboNativeProject/Delegates", "#{name}/#{name}/Delegates"
-        directory "ios_stack/TurboNativeProject/Resources", "#{name}/#{name}/Resources"
-        template  "ios_stack/TurboNativeProject/TurboNativeProject.swift", "#{name}/#{name}/#{name}.swift"
-        directory "ios_stack/TurboNativeProject.xcodeproj", "#{name}/#{name}.xcodeproj"
-      elsif android_stack?
-        # android_stack/app
-        copy_file "android_stack/app/.gitignore", "#{name}/app/.gitignore"
-        template  "android_stack/app/build.gradle.kts", "#{name}/app/build.gradle.kts"
-        copy_file "android_stack/app/proguard-rules.pro", "#{name}/app/proguard-rules.pro"
+      if ios?
+        # project/TurboNativeProject
+        directory "#{project}/TurboNativeProject/Configuration", "#{name}/#{name}/Configuration"
+        directory "#{project}/TurboNativeProject/Controllers", "#{name}/#{name}/Controllers"
+        directory "#{project}/TurboNativeProject/Delegates", "#{name}/#{name}/Delegates"
+        directory "#{project}/TurboNativeProject/Resources", "#{name}/#{name}/Resources"
+        template  "#{project}/TurboNativeProject/TurboNativeProject.swift", "#{name}/#{name}/#{name}.swift"
 
-        # android_stack/app/src/debug
-        directory "android_stack/app/src/debug", "#{name}/app/src/debug"
+        # project
+        directory "#{project}/TurboNativeProject.xcodeproj", "#{name}/#{name}.xcodeproj"
+      end
 
-        # android_stack/app/src/main
-        directory "android_stack/app/src/main/assets", "#{name}/app/src/main/assets"
-        directory "android_stack/app/src/main/java/dev/hotwire/turbo/turbonativeproject", "#{name}/app/src/main/java/#{package_path}"
-        directory "android_stack/app/src/main/res", "#{name}/app/src/main/res"
-        template  "android_stack/app/src/main/AndroidManifest.xml", "#{name}/app/src/main/AndroidManifest.xml"
+      if android?
+        # project/app
+        copy_file "#{project}/app/.gitignore", "#{name}/app/.gitignore"
+        copy_file "#{project}/app/proguard-rules.pro", "#{name}/app/proguard-rules.pro"
+        template  "#{project}/app/build.gradle.kts", "#{name}/app/build.gradle.kts"
 
-        # android_stack/gradle
-        directory "android_stack/gradle", "#{name}/gradle"
+        # project/app/src/debug
+        directory "#{project}/app/src/debug", "#{name}/app/src/debug"
 
-        # android_stack
-        copy_file "android_stack/build.gradle.kts", "#{name}/build.gradle.kts"
-        copy_file "android_stack/gradle.properties", "#{name}/gradle.properties"
-        copy_file "android_stack/gradlew", "#{name}/gradlew"
-        copy_file "android_stack/gradlew.bat", "#{name}/gradlew.bat"
-        copy_file "android_stack/local.properties", "#{name}/local.properties"
-        template  "android_stack/settings.gradle.kts", "#{name}/settings.gradle.kts"
-      else
-        say "Template not implemented yet... =/"
+        # project/app/src/main
+        directory "#{project}/app/src/main/assets", "#{name}/app/src/main/assets"
+        directory "#{project}/app/src/main/java/dev/hotwire/turbo/turbonativeproject", "#{name}/app/src/main/java/#{package_path}"
+        directory "#{project}/app/src/main/res", "#{name}/app/src/main/res"
+        template  "#{project}/app/src/main/AndroidManifest.xml", "#{name}/app/src/main/AndroidManifest.xml"
+
+        # project/gradle
+        directory "#{project}/gradle", "#{name}/gradle"
+
+        # project
+        copy_file "#{project}/build.gradle.kts", "#{name}/build.gradle.kts"
+        copy_file "#{project}/gradle.properties", "#{name}/gradle.properties"
+        copy_file "#{project}/gradlew", "#{name}/gradlew"
+        copy_file "#{project}/gradlew.bat", "#{name}/gradlew.bat"
+        copy_file "#{project}/local.properties", "#{name}/local.properties"
+        template  "#{project}/settings.gradle.kts", "#{name}/settings.gradle.kts"
       end
     end
 
     private
-      def ios_stack?
-        options[:platform] == "ios" && options[:navigation] == "stack"
+      def ios?
+        options[:platform] == "ios"
       end
 
-      def android_stack?
-        options[:platform] == "android" && options[:navigation] == "stack"
+      def android?
+        options[:platform] == "android"
       end
 
-      def package
-        options[:package]
-      end
-
-      def package_name
-        "#{package}.#{name.downcase}"
+      def project
+        "#{options[:platform]}_#{options[:navigation]}"
       end
 
       def package_path
-        package.split(".").join("/")
+        options[:package].split(".").join("/")
+      end
+
+      def package_name
+        "#{options[:package]}.#{name.downcase}"
       end
 
       def bundle_identifier
-        "#{package}.#{name}"
+        "#{options[:package]}.#{name}"
       end
   end
 end

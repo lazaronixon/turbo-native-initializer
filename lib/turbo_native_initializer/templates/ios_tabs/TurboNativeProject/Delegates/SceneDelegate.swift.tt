@@ -7,8 +7,20 @@ final class SceneDelegate: UIResponder {
     private static var sharedProcessPool = WKProcessPool()
 
     var window: UIWindow?
-    private let rootURL = <%= name %>.homeURL
-    private var navigationController: TurboNavigationController!
+
+    private let baseURL  = <%= name %>.baseURL
+    private let rootURL1 = <%= name %>.homeURL1
+    private let rootURL2 = <%= name %>.homeURL2
+
+    private var tabBarController: UITabBarController!
+
+    private lazy var navigationController1 = {
+        tabBarController.viewControllers![0] as! TurboNavigationController
+    }()
+
+    private lazy var navigationController2 = {
+        tabBarController.viewControllers![1] as! TurboNavigationController
+    }()
 
     // MARK: - Setup
 
@@ -17,22 +29,27 @@ final class SceneDelegate: UIResponder {
 
         window.tintColor = UIColor(named: "Tint")
 
-        navigationController = (window.rootViewController as! TurboNavigationController)
-        navigationController.session = session
-        navigationController.modalSession = modalSession
+        tabBarController = (window.rootViewController as! UITabBarController)
+
+        navigationController1.session = session1
+        navigationController1.modalSession = modalSession
+
+        navigationController2.session = session2
+        navigationController2.modalSession = modalSession
     }
 
-    // MARK: - Authentication
+    private func navigationController() -> TurboNavigationController {
+        tabBarController.selectedViewController as! TurboNavigationController
+    }
 
-    private func promptForAuthentication() {
-        let authURL = <%= name %>.signInURL
-        let properties = pathConfiguration.properties(for: authURL)
-        navigationController.route(url: authURL, options: VisitOptions(), properties: properties)
+    private func session() -> Session {
+        navigationController().session
     }
 
     // MARK: - Sessions
 
-    private lazy var session = makeSession()
+    private lazy var session1 = makeSession()
+    private lazy var session2 = makeSession()
     private lazy var modalSession = makeSession()
 
     private func makeSession() -> Session {
@@ -61,21 +78,21 @@ extension SceneDelegate: UIWindowSceneDelegate {
         guard let _ = scene as? UIWindowScene else { return }
 
         configureRootViewController()
-        navigationController.route(url: rootURL, options: VisitOptions(action: .replace), properties: [:])
+
+        navigationController1.route(url: rootURL1, options: VisitOptions(action: .replace), properties: [:])
+        navigationController2.route(url: rootURL2, options: VisitOptions(action: .replace), properties: [:])
     }
 }
 
 extension SceneDelegate: SessionDelegate {
     func session(_ session: Session, didProposeVisit proposal: VisitProposal) {
-        navigationController.route(url: proposal.url, options: proposal.options, properties: proposal.properties)
+        navigationController().route(url: proposal.url, options: proposal.options, properties: proposal.properties)
     }
 
     func session(_ session: Session, didFailRequestForVisitable visitable: Visitable, error: Error) {
-        if let turboError = error as? TurboError, case let .http(statusCode) = turboError, statusCode == 401 {
-            promptForAuthentication()
-        } else if let errorPresenter = visitable as? ErrorPresenter {
+        if let errorPresenter = visitable as? ErrorPresenter {
             errorPresenter.presentError(error) { [weak self] in
-                self?.session.reload()
+                self?.session().reload()
             }
         } else {
             assertionFailure("Visit failed!")
@@ -87,7 +104,7 @@ extension SceneDelegate: SessionDelegate {
     // don't want potentially stale cached snapshots to be used
     func sessionDidFinishFormSubmission(_ session: Session) {
         if (session == modalSession) {
-            self.session.clearSnapshotCache()
+            self.session().clearSnapshotCache()
         }
     }
 
@@ -113,9 +130,9 @@ extension SceneDelegate: WKNavigationDelegate {
             // For this demo, we'll load files from our domain in a SafariViewController so you
             // don't need to leave the app. You might expand this in your app
             // to open all audio/video/images in a native media viewer
-            if url.host == rootURL.host, !url.pathExtension.isEmpty {
+            if url.host == baseURL.host, !url.pathExtension.isEmpty {
                 let safariViewController = SFSafariViewController(url: url)
-                navigationController.present(safariViewController, animated: true)
+                navigationController().present(safariViewController, animated: true)
             } else {
                 UIApplication.shared.open(url)
             }
@@ -134,6 +151,6 @@ extension SceneDelegate: WKUIDelegate {
         confirm.addAction(UIAlertAction(title: "OK", style: .default) { _ in completionHandler(true) })
 
         // JavaScript alerts in Turbo Native
-        navigationController.present(confirm, animated: true)
+        navigationController().present(confirm, animated: true)
     }
 }
