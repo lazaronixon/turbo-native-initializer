@@ -1,0 +1,17 @@
+package <%= package_name %>.features.web
+
+import android.os.Bundle
+import android.view.View
+import dev.hotwire.turbo.nav.TurboNavGraphDestination
+import <%= package_name %>.R
+
+@TurboNavGraphDestination(uri = "turbo://fragment/web/modal")
+class WebModalFragment : WebFragment() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState); initToolbar()
+    }
+
+    private fun initToolbar() {
+        toolbarForNavigation()?.navigationIcon = context?.getDrawable(R.drawable.ic_close)
+    }
+}

@@ -1,0 +1,47 @@
+package <%= package_name %>.main
+
+import android.os.Bundle
+import android.widget.ViewFlipper
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import dev.hotwire.turbo.activities.TurboActivity
+import dev.hotwire.turbo.delegates.TurboActivityDelegate
+import <%= package_name %>.R
+
+class MainActivity : AppCompatActivity(), TurboActivity {
+    override lateinit var delegate: TurboActivityDelegate
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        delegate = TurboActivityDelegate(this, R.id.tab_one_nav_host)
+        delegate.registerNavHostFragment(R.id.tab_one_nav_host)
+        delegate.registerNavHostFragment(R.id.tab_two_nav_host)
+
+        setupBottomNavigationView()
+    }
+
+    private fun setupBottomNavigationView() {
+        val viewFliper = findViewById<ViewFlipper>(R.id.view_flipper)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+
+        bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.tab_item_one -> {
+                    viewFliper.displayedChild = 0
+                    delegate.currentNavHostFragmentId = R.id.tab_one_nav_host
+                    true
+                }
+                R.id.tab_item_two -> {
+                    viewFliper.displayedChild = 1
+                    delegate.currentNavHostFragmentId = R.id.tab_two_nav_host
+                    true
+                }
+                else -> {
+                    throw RuntimeException("Invalid tab")
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+package <%= package_name %>.util
+
+private const val DEVELOPMENT_URL = "http://10.0.2.2:3000"
+private const val PRODUCTION_URL  = "https://turbo-native-demo.glitch.me"
+
+const val BASE_URL      = PRODUCTION_URL
+const val CURRENT_URL_1 = "$BASE_URL/"
+const val CURRENT_URL_2 = "$BASE_URL/"
