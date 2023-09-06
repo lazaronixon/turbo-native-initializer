@@ -29,13 +29,13 @@ class MainActivity : AppCompatActivity(), TurboActivity {
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.tab_item_one -> {
-                    viewFliper.displayedChild = 0
                     delegate.currentNavHostFragmentId = R.id.tab_one_nav_host
+                    viewFliper.displayedChild = 0
                     true
                 }
                 R.id.tab_item_two -> {
-                    viewFliper.displayedChild = 1
                     delegate.currentNavHostFragmentId = R.id.tab_two_nav_host
+                    viewFliper.displayedChild = 1
                     true
                 }
                 else -> {

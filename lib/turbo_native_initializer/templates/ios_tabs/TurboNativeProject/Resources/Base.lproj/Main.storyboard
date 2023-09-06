@@ -18,7 +18,7 @@
                         <viewLayoutGuide key="safeArea" id="CoL-dA-Hxa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" image="gear" catalog="system" id="rhZ-zi-yeq"/>
+                    <tabBarItem key="tabBarItem" title="" image="gear" catalog="system" id="rhZ-zi-yeq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ife-PY-okT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -34,7 +34,7 @@
                         <viewLayoutGuide key="safeArea" id="K5f-nY-Cgh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" image="house" catalog="system" id="ZWo-HO-m4a"/>
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="ZWo-HO-m4a"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRr-XE-fAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

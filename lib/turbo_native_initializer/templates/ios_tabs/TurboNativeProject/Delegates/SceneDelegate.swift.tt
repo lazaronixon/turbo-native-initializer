@@ -22,6 +22,10 @@ final class SceneDelegate: UIResponder {
         tabBarController.viewControllers![1] as! TurboNavigationController
     }()
 
+    private func navigationController() -> TurboNavigationController {
+        tabBarController.selectedViewController as! TurboNavigationController
+    }
+
     // MARK: - Setup
 
     private func configureRootViewController() {
@@ -29,7 +33,7 @@ final class SceneDelegate: UIResponder {
 
         window.tintColor = UIColor(named: "Tint")
 
-        tabBarController = (window.rootViewController as! UITabBarController)
+        tabBarController = window.rootViewController as? UITabBarController
 
         navigationController1.session = session1
         navigationController1.modalSession = modalSession
@@ -38,18 +42,11 @@ final class SceneDelegate: UIResponder {
         navigationController2.modalSession = modalSession
     }
 
-    private func navigationController() -> TurboNavigationController {
-        tabBarController.selectedViewController as! TurboNavigationController
-    }
-
-    private func session() -> Session {
-        navigationController().session
-    }
-
     // MARK: - Sessions
 
     private lazy var session1 = makeSession()
     private lazy var session2 = makeSession()
+
     private lazy var modalSession = makeSession()
 
     private func makeSession() -> Session {
@@ -65,6 +62,10 @@ final class SceneDelegate: UIResponder {
         session.pathConfiguration = pathConfiguration
         return session
     }
+
+    private func session() -> Session {
+        navigationController().session
+    }    
 
     // MARK: - Path Configuration
 
