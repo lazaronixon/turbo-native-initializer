@@ -10,7 +10,7 @@ import androidx.navigation.navOptions
 import dev.hotwire.turbo.config.TurboPathConfigurationProperties
 import dev.hotwire.turbo.config.context
 import <%= package_name %>.R
-import <%= package_name %>.util.CURRENT_URL
+import <%= package_name %>.util.BASE_URL
 import dev.hotwire.turbo.nav.TurboNavDestination
 import dev.hotwire.turbo.nav.TurboNavPresentationContext.MODAL
 
@@ -36,7 +36,7 @@ interface NavDestination : TurboNavDestination {
     }
 
     private fun isNavigable(location: String): Boolean {
-        return location.startsWith(CURRENT_URL)
+        return location.startsWith(BASE_URL)
     }
 
     private fun launchCustomTab(location: String) {
