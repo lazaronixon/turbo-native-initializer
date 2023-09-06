@@ -28,10 +28,20 @@ $ cd AwesomeProject
 $ studio .
 ```
 
-For more options check --help.
+## Usage
 
 ```
-$ turbo-native-initializer --help
+Usage:
+  turbo-native-initializer NAME --platform=PLATFORM
+
+Options:
+  --platform=PLATFORM        
+                             # Possible values: ios, android
+  [--navigation=NAVIGATION]  
+                             # Default: stack
+                             # Possible values: stack, tabs
+  [--package=PACKAGE]        
+                             # Default: dev.hotwire.turbo
 ```
 
 ## Development
