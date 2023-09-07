@@ -1,37 +1,9 @@
 package <%= package_name %>.main
 
-import android.webkit.WebView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import dev.hotwire.turbo.config.TurboPathConfiguration
-import <%= package_name %>.features.web.WebFragment
-import <%= package_name %>.features.web.WebHomeFragment
-import <%= package_name %>.features.web.WebModalFragment
 import <%= package_name %>.util.CURRENT_URL_1
-import dev.hotwire.turbo.session.TurboSessionNavHostFragment
-import kotlin.reflect.KClass
 
 @Suppress("unused")
-class TabOneSessionNavHostFragment : TurboSessionNavHostFragment() {
-    override val sessionName = "main"
-
+class TabOneSessionNavHostFragment : BaseSessionNavHostFragment() {
+    override val sessionName = "tab_one"
     override val startLocation = CURRENT_URL_1
-
-    override val registeredActivities: List<KClass<out AppCompatActivity>>
-        get() = listOf()
-
-    override val registeredFragments: List<KClass<out Fragment>>
-        get() = listOf(WebFragment::class, WebHomeFragment::class, WebModalFragment::class)
-
-    override val pathConfigurationLocation: TurboPathConfiguration.Location
-        get() = TurboPathConfiguration.Location(assetFilePath = "json/configuration.json")
-
-    override fun onSessionCreated() {
-        super.onSessionCreated()
-        session.webView.settings.userAgentString = customUserAgent(session.webView)
-    }
-
-    private fun customUserAgent(webView: WebView): String {
-        return "Turbo Native Android ${webView.settings.userAgentString}"
-    }
 }
