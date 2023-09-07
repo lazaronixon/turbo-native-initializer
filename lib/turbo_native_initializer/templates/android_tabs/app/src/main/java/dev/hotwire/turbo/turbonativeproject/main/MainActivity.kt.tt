@@ -9,6 +9,12 @@ import dev.hotwire.turbo.delegates.TurboActivityDelegate
 import <%= package_name %>.R
 
 class MainActivity : AppCompatActivity(), TurboActivity {
+    private val viewFliper: ViewFlipper
+        get() = findViewById(R.id.view_flipper)
+
+    private val bottomNavigationView: BottomNavigationView
+        get() = findViewById(R.id.bottom_navigation_view)
+
     override lateinit var delegate: TurboActivityDelegate
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,9 +29,6 @@ class MainActivity : AppCompatActivity(), TurboActivity {
     }
 
     private fun setupBottomNavigationView() {
-        val viewFliper = findViewById<ViewFlipper>(R.id.view_flipper)
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
-
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.tab_item_one -> {
