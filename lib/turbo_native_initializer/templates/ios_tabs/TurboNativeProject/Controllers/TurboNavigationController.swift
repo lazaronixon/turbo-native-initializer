@@ -75,7 +75,7 @@ extension TurboNavigationController {
         if let viewController = properties["view-controller"] as? String {
             switch viewController {
             case "numbers":
-                assertionFailure("NumbersViewController is not implemented")
+                return NumbersViewController()
             default:
                 assertionFailure("Invalid view controller, defaulting to WebView")
             }
@@ -87,7 +87,7 @@ extension TurboNavigationController {
     private func navigate(to viewController: UIViewController, action: VisitAction, properties: PathProperties = [:], animated: Bool = true) {
         let modalNavController = UINavigationController(rootViewController: viewController)
         modalNavController.modalPresentationStyle = .fullScreen
-        
+
         if isModal(properties) {
             present(modalNavController, animated: animated)
         } else if isClearAll(properties) {

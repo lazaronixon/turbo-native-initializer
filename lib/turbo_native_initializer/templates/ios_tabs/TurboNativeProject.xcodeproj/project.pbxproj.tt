@@ -18,6 +18,7 @@
 		5DCC50EE2A95A27600B529A0 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50ED2A95A27600B529A0 /* ErrorPresenter.swift */; };
 		5DCC50F12A95A66700B529A0 /* Turbo in Frameworks */ = {isa = PBXBuildFile; productRef = 5DCC50F02A95A66700B529A0 /* Turbo */; };
 		5DCC50F32A95A7E600B529A0 /* <%= name %>.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50F22A95A7E600B529A0 /* <%= name %>.swift */; };
+		5DDD58812AA9A8BE00FAC961 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDD58802AA9A8BE00FAC961 /* NumbersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		5DCC50E92A95A19600B529A0 /* path-configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "path-configuration.json"; sourceTree = "<group>"; };
 		5DCC50ED2A95A27600B529A0 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		5DCC50F22A95A7E600B529A0 /* <%= name %>.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = <%= name %>.swift; sourceTree = "<group>"; };
+		5DDD58802AA9A8BE00FAC961 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				5DCC50ED2A95A27600B529A0 /* ErrorPresenter.swift */,
 				5DCC50E72A95A0D900B529A0 /* TurboNavigationController.swift */,
 				5DCC50D72A959DF900B529A0 /* ViewController.swift */,
+				5DDD58802AA9A8BE00FAC961 /* NumbersViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DCC50D82A959DF900B529A0 /* ViewController.swift in Sources */,
+				5DDD58812AA9A8BE00FAC961 /* NumbersViewController.swift in Sources */,
 				5DCC50D42A959DF900B529A0 /* AppDelegate.swift in Sources */,
 				5DCC50E82A95A0D900B529A0 /* TurboNavigationController.swift in Sources */,
 				5DCC50D62A959DF900B529A0 /* SceneDelegate.swift in Sources */,

@@ -75,7 +75,7 @@ extension TurboNavigationController {
         if let viewController = properties["view-controller"] as? String {
             switch viewController {
             case "numbers":
-                assertionFailure("NumbersViewController is not implemented")
+                return NumbersViewController()
             default:
                 assertionFailure("Invalid view controller, defaulting to WebView")
             }
