@@ -5,13 +5,13 @@ A turbo native project generator for iOS and Android.
 ## Differences when compared to the demos
 
 - Added SwiftUI error screen. (iOS)
-- Added SwiftUI numbers screen. (iOS)
-- Added Jetpack Compose numbers screen. (Android)
-- Added UIAlertController to handle `turbo-native-confirm`. (iOS)
+- Added SwiftUI numbers example screen. (iOS)
+- Added Jetpack Compose numbers example screen. (Android)
+- Added UIAlertController to handle `data-turbo-confirm`. (iOS)
 - Added presentations `clear-all`, `replace-all`, `replace`, `pop`, `refresh`, and `none`. (iOS)
 - Added visitable property in order to avoid visits. (iOS)
-- Added full screen option to modals. (iOS/Android)
 - Added support for tab navigation. (iOS/Android)
+- Display full screen modals with a close icon. (iOS/Android)
 
 ## Installation
 
