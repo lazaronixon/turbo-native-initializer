@@ -36,12 +36,12 @@ module TurboNativeInitializer
         "#{options[:platform]}_#{options[:navigation]}"
       end
 
-      def package_path
-        options[:package].split(".").join("/")
-      end
-
       def package_name
         "#{options[:package]}.#{name.downcase}"
+      end
+
+      def package_path
+        package_name.split(".").join("/")
       end
 
       def bundle_identifier
