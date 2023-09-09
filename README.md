@@ -11,7 +11,6 @@ A turbo native project generator for iOS and Android.
 - Added presentations `clear-all`, `replace-all`, `replace`, `pop`, `refresh`, and `none`. (iOS)
 - Added visitable property in order to avoid visits. (iOS)
 - Added support for tab navigation. (iOS/Android)
-- Display full screen modals with a close icon. (iOS/Android)
 
 ## Installation
 

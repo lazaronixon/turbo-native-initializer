@@ -26,9 +26,9 @@ class TurboNavigationController : UINavigationController {
         let viewController = makeViewController(for: url, properties: properties)
         navigate(to: viewController, action: options.action, properties: properties)
 
-        // - Initiate the visit with Turbo
+        // Initiate the visit with Turbo
         if isVisitable(properties) {
-            visit(viewController: viewController, with: options)
+            visit(viewController: viewController, with: options, modal: isModal(properties))
         }
     }
 }
@@ -77,33 +77,30 @@ extension TurboNavigationController {
             case "numbers":
                 return NumbersViewController()
             default:
-                assertionFailure("Invalid view controller, defaulting to WebView")
+                return ViewController(url: url)
             }
         }
 
         return ViewController(url: url)
     }
 
-    private func navigate(to viewController: UIViewController, action: VisitAction, properties: PathProperties = [:], animated: Bool = true) {
-        let modalNavController = UINavigationController(rootViewController: viewController)
-        modalNavController.modalPresentationStyle = .fullScreen
-
+    private func navigate(to viewController: UIViewController, action: VisitAction, properties: PathProperties = [:]) {
         if isModal(properties) {
-            present(modalNavController, animated: animated)
-        } else if isClearAll(properties) {
-            popToRootViewController(animated: true)
+            present(UINavigationController(rootViewController: viewController), animated: true)
         } else if isPop(properties) {
             popViewController(animated: true)
         } else if isRefresh(properties) {
             session.reload()
         } else if isNone(properties) {
             // Will result in no navigation action being taken
+        } else if isClearAll(properties) {
+            popToRootViewController(animated: true)
         } else if isReplaceAll(properties) {
             setViewControllers([viewController], animated: false)
         } else if isReplace(properties) || action == .replace {
             setViewControllers(Array(viewControllers.dropLast()) + [viewController], animated: false)
         } else {
-            pushViewController(viewController, animated: animated)
+            pushViewController(viewController, animated: true)
         }
     }
 

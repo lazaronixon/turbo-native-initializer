@@ -6,11 +6,10 @@ final class ViewController: VisitableViewController, ErrorPresenter {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
-
         navigationItem.backButtonDisplayMode = .minimal
 
         if presentingViewController != nil {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissModal))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissModal))
         }
     }
 

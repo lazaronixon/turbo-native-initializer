@@ -15,8 +15,6 @@ final class SceneDelegate: UIResponder {
     private func configureRootViewController() {
         guard let window = window else { fatalError() }
 
-        window.tintColor = UIColor(named: "Tint")
-
         navigationController = window.rootViewController as? TurboNavigationController
         navigationController.session = session
         navigationController.modalSession = modalSession
