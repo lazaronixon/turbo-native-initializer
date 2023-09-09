@@ -6,6 +6,7 @@ final class ViewController: VisitableViewController, ErrorPresenter {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+
         navigationItem.backButtonDisplayMode = .minimal
 
         if presentingViewController != nil {

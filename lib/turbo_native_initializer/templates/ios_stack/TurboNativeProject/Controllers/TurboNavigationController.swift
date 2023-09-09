@@ -79,9 +79,9 @@ extension TurboNavigationController {
             default:
                 return ViewController(url: url)
             }
+        } else {
+            return ViewController(url: url)
         }
-
-        return ViewController(url: url)
     }
 
     private func navigate(to viewController: UIViewController, action: VisitAction, properties: PathProperties = [:]) {
