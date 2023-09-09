@@ -27,7 +27,7 @@ fun NumbersList() {
 
     LazyColumn {
         items(numbers.count()) { index ->
-            ListItem(headlineContent = { Text("Row number ${index + 1}") })
+            ListItem(headlineContent = { Text("Row ${index + 1}") })
             Divider()
         }
     }

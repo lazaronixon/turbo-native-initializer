@@ -26,7 +26,7 @@ class TurboNavigationController : UINavigationController {
         let viewController = makeViewController(for: url, properties: properties)
         navigate(to: viewController, action: options.action, properties: properties)
 
-        // - Initiate the visit with Turbo
+        // Initiate the visit with Turbo
         if isVisitable(properties) {
             visit(viewController: viewController, with: options, modal: isModal(properties))
         }
