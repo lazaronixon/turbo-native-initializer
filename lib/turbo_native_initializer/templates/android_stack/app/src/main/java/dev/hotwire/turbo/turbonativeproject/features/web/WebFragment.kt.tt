@@ -15,4 +15,8 @@ open class WebFragment : TurboWebFragment(), NavDestination {
             else -> super.onVisitErrorReceived(location, errorCode)
         }
     }
+
+    override fun createErrorView(statusCode: Int): View {
+        return layoutInflater.inflate(R.layout.error_web, null)
+    }    
 }

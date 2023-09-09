@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.0.5] - 2023-09-10
+
+- Added android custom error screen
+
 ## [0.0.4] - 2023-09-09
 
 - Added accent color (iOS)

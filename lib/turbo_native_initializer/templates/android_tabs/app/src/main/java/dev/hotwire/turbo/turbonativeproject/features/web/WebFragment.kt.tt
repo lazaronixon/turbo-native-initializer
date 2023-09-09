@@ -5,4 +5,8 @@ import dev.hotwire.turbo.fragments.TurboWebFragment
 import dev.hotwire.turbo.nav.TurboNavGraphDestination
 
 @TurboNavGraphDestination(uri = "turbo://fragment/web")
-open class WebFragment : TurboWebFragment(), NavDestination
+open class WebFragment : TurboWebFragment(), NavDestination {
+    override fun createErrorView(statusCode: Int): View {
+        return layoutInflater.inflate(R.layout.error_web, null)
+    }
+}
