@@ -38,10 +38,6 @@ extension TurboNavigationController {
         return properties["presentation"] as? String == "modal"
     }
 
-    private func isClearAll(_ properties: PathProperties) -> Bool {
-        return properties["presentation"] as? String == "clear-all"
-    }
-
     private func isPop(_ properties: PathProperties) -> Bool {
         return properties["presentation"] as? String == "pop"
     }
@@ -53,6 +49,10 @@ extension TurboNavigationController {
     private func isNone(_ properties: PathProperties) -> Bool {
         return properties["presentation"] as? String == "none"
     }
+
+    private func isClearAll(_ properties: PathProperties) -> Bool {
+        return properties["presentation"] as? String == "clear-all"
+    }    
 
     private func isReplaceAll(_ properties: PathProperties) -> Bool {
         return properties["presentation"] as? String == "replace-all"
