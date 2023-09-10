@@ -1,8 +1,10 @@
 package <%= package_name %>.features.web
 
+import android.view.View
 import <%= package_name %>.base.NavDestination
 import dev.hotwire.turbo.fragments.TurboWebFragment
 import dev.hotwire.turbo.nav.TurboNavGraphDestination
+import <%= package_name %>.R
 
 @TurboNavGraphDestination(uri = "turbo://fragment/web")
 open class WebFragment : TurboWebFragment(), NavDestination {

@@ -1,9 +1,11 @@
 package <%= package_name %>.features.web
 
+import android.view.View
 import <%= package_name %>.base.NavDestination
 import <%= package_name %>.util.SIGN_IN_URL
 import dev.hotwire.turbo.fragments.TurboWebFragment
 import dev.hotwire.turbo.nav.TurboNavGraphDestination
+import <%= package_name %>.R
 import dev.hotwire.turbo.visit.TurboVisitAction.REPLACE
 import dev.hotwire.turbo.visit.TurboVisitOptions
 
@@ -18,5 +20,5 @@ open class WebFragment : TurboWebFragment(), NavDestination {
 
     override fun createErrorView(statusCode: Int): View {
         return layoutInflater.inflate(R.layout.error_web, null)
-    }    
+    }
 }
