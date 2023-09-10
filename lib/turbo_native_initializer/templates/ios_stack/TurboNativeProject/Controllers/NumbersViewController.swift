@@ -1,16 +1,9 @@
 import SwiftUI
 
 class NumbersViewController: UIHostingController<NumbersView> {
-    init() {
-        super.init(rootView: NumbersView())
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad(); title = "Numbers"
+    convenience init(title: String) {
+        self.init(rootView: NumbersView())
+        self.title = title
     }
 }
 

@@ -52,7 +52,7 @@ extension TurboNavigationController {
 
     private func isClearAll(_ properties: PathProperties) -> Bool {
         return properties["presentation"] as? String == "clear-all"
-    }    
+    }
 
     private func isReplaceAll(_ properties: PathProperties) -> Bool {
         return properties["presentation"] as? String == "replace-all"
@@ -75,13 +75,13 @@ extension TurboNavigationController {
         if let viewController = properties["view-controller"] as? String {
             switch viewController {
             case "numbers":
-                return NumbersViewController()
+                return NumbersViewController(title: "Numbers")
             default:
-                return ViewController(url: url)
+                assertionFailure("Invalid view controller, defaulting to WebView")
             }
-        } else {
-            return ViewController(url: url)
         }
+
+        return ViewController(url: url)
     }
 
     private func navigate(to viewController: UIViewController, action: VisitAction, properties: PathProperties = [:]) {
