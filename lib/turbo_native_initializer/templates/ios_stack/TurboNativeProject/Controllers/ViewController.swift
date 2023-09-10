@@ -5,16 +5,18 @@ final class ViewController: VisitableViewController, ErrorPresenter {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBackground
-
-        navigationItem.backButtonDisplayMode = .minimal
+        navigationItem.backButtonTitle = "Back"
 
         if presentingViewController != nil {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissModal))
+            navigationItem.leftBarButtonItem = dismissModalButton
         }
     }
 
-    @objc func dismissModal() {
+    private lazy var dismissModalButton = {
+        UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissModal))
+    }()
+
+    @objc private func dismissModal() {
         dismiss(animated: true)
     }
 }
