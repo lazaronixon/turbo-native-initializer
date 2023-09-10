@@ -1,6 +1,10 @@
 ## [Unreleased]
 
-## [0.0.5] - 2023-09-10
+## [0.0.6] - 2023-09-09
+
+- Fix android template imports
+
+## [0.0.5] - 2023-09-09
 
 - Added android custom error screen
 
