@@ -1,6 +1,6 @@
 ## [Unreleased]
 
-## [0.0.8] - 2023-09-11
+## [0.0.9] - 2023-09-11
 
 - Fix retry button in modals (iOS)
 

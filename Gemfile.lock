@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    turbo-native-initializer (0.0.8)
+    turbo-native-initializer (0.0.9)
       thor
 
 GEM
