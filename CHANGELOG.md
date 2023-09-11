@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.0.7] - 2023-09-09
+
+- Small refactor in the NumbersViewController (iOS)
+
 ## [0.0.6] - 2023-09-09
 
 - Fix android template imports
