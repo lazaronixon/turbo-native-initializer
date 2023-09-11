@@ -90,11 +90,9 @@ extension SceneDelegate: SessionDelegate {
 
     func session(_ session: Session, didFailRequestForVisitable visitable: Visitable, error: Error) {
         if let errorPresenter = visitable as? ErrorPresenter {
-            errorPresenter.presentError(error) { [weak self] in
-                self?.session().reload()
-            }
+            errorPresenter.presentError(error) { session.reload() }
         } else {
-            assertionFailure("Visit failed!")
+            fatalError("Visit failed!")
         }
     }
 

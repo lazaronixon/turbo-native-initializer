@@ -72,11 +72,9 @@ extension SceneDelegate: SessionDelegate {
         if let turboError = error as? TurboError, case let .http(statusCode) = turboError, statusCode == 401 {
             promptForAuthentication()
         } else if let errorPresenter = visitable as? ErrorPresenter {
-            errorPresenter.presentError(error) { [weak self] in
-                self?.session.reload()
-            }
+            errorPresenter.presentError(error) { session.reload() }
         } else {
-            assertionFailure("Visit failed!")
+            fatalError("Visit failed!")
         }
     }
 
