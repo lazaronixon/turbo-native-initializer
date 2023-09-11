@@ -43,10 +43,6 @@ struct ErrorView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            Image(systemName: "exclamationmark.triangle")
-                .font(.system(size: 38, weight: .semibold))
-                .foregroundColor(.accentColor)
-
             Text("Error loading page")
                 .font(.largeTitle)
 
