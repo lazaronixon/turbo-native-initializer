@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.0.8] - 2023-09-11
+
+- Fix retry button in modals (iOS)
+
 ## [0.0.7] - 2023-09-09
 
 - Small refactor in the NumbersViewController (iOS)
