@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+## [0.0.10] - 2023-09-12
+
+- Replace navigation when going to the same url (iOS)
+- Better looking dismiss modal button (iOS)
+- Disable link previews (iOS)
+
 ## [0.0.9] - 2023-09-11
 
 - Fix retry button in modals (iOS)
