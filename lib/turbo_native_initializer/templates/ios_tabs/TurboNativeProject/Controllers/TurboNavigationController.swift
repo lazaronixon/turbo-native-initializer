@@ -24,7 +24,13 @@ class TurboNavigationController : UINavigationController {
         // - Create view controller appropriate for url/properties
         // - Navigate to that with the correct presentation
         let viewController = makeViewController(for: url, properties: properties)
-        navigate(to: viewController, action: options.action, properties: properties)
+
+        // - Navigate to that with the correct presentation
+        if session.activeVisitable?.visitableURL != url {
+            navigate(to: viewController, action: options.action, properties: properties)
+        } else {
+            navigate(to: viewController, action: .replace, properties: properties)
+        }
 
         // Initiate the visit with Turbo
         if isVisitable(properties) {
