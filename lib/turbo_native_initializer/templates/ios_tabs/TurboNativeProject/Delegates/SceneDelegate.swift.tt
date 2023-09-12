@@ -54,6 +54,7 @@ final class SceneDelegate: UIResponder {
 
         let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.uiDelegate = self
+        webView.allowsLinkPreview = false
 
         let session = Session(webView: webView)
         session.delegate = self
