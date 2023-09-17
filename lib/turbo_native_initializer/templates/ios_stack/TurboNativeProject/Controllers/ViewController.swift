@@ -13,7 +13,7 @@ final class ViewController: VisitableViewController, ErrorPresenter {
     }
 
     private lazy var dismissModalButton = {
-        UIBarButtonItem(image: UIImage(systemName: "chevron.down"), style: .plain, target: self, action: #selector(dismissModal))
+        UIBarButtonItem(image: .init(systemName: "chevron.down"), style: .plain, target: self, action: #selector(dismissModal))
     }()
 
     @objc private func dismissModal() {
