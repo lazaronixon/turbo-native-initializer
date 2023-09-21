@@ -2,6 +2,7 @@ import UIKit
 import WebKit
 import SafariServices
 import Turbo
+import Strada
 
 final class SceneDelegate: UIResponder {
     private static var sharedProcessPool = WKProcessPool()
@@ -48,13 +49,11 @@ final class SceneDelegate: UIResponder {
     private lazy var modalSession = makeSession()
 
     private func makeSession() -> Session {
-        let configuration = WKWebViewConfiguration()
-        configuration.applicationNameForUserAgent = "Turbo Native iOS"
-        configuration.processPool = Self.sharedProcessPool
-
-        let webView = WKWebView(frame: .zero, configuration: configuration)
+        let webView = WKWebView(frame: .zero, configuration: .appConfiguration)
         webView.uiDelegate = self
         webView.allowsLinkPreview = false
+
+        Bridge.initialize(webView) // Initialize Strada bridge.
 
         let session = Session(webView: webView)
         session.delegate = self

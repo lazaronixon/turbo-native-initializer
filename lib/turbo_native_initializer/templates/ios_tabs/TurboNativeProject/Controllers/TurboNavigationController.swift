@@ -22,7 +22,6 @@ class TurboNavigationController : UINavigationController {
         }
 
         // - Create view controller appropriate for url/properties
-        // - Navigate to that with the correct presentation
         let viewController = makeViewController(for: url, properties: properties)
 
         // - Navigate to that with the correct presentation
@@ -87,7 +86,7 @@ extension TurboNavigationController {
             }
         }
 
-        return ViewController(url: url)
+        return TurboWebViewController(url: url)
     }
 
     private func navigate(to viewController: UIViewController, action: VisitAction, properties: PathProperties = [:]) {
