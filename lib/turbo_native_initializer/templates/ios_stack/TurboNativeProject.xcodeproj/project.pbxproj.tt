@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		5D0D861F2A9AA70500A525E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D0D86212A9AA70500A525E9 /* Main.storyboard */; };
+		5D281BAF2ABC0BBC001CE599 /* Strada in Frameworks */ = {isa = PBXBuildFile; productRef = 5D281BAE2ABC0BBC001CE599 /* Strada */; };
+		5D281BB12ABC0C3D001CE599 /* WKWebViewConfiguration+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D281BB02ABC0C3D001CE599 /* WKWebViewConfiguration+App.swift */; };
+		5D281BB42ABC0CB0001CE599 /* BridgeComponent+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D281BB32ABC0CB0001CE599 /* BridgeComponent+App.swift */; };
+		5D281BB62ABC0CB9001CE599 /* FormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D281BB52ABC0CB9001CE599 /* FormComponent.swift */; };
 		5DCC50D42A959DF900B529A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50D32A959DF900B529A0 /* AppDelegate.swift */; };
 		5DCC50D62A959DF900B529A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50D52A959DF900B529A0 /* SceneDelegate.swift */; };
-		5DCC50D82A959DF900B529A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50D72A959DF900B529A0 /* ViewController.swift */; };
+		5DCC50D82A959DF900B529A0 /* TurboWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50D72A959DF900B529A0 /* TurboWebViewController.swift */; };
 		5DCC50DD2A959DFA00B529A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DCC50DC2A959DFA00B529A0 /* Assets.xcassets */; };
 		5DCC50E02A959DFA00B529A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DCC50DE2A959DFA00B529A0 /* LaunchScreen.storyboard */; };
 		5DCC50E82A95A0D900B529A0 /* TurboNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50E72A95A0D900B529A0 /* TurboNavigationController.swift */; };
@@ -23,10 +27,13 @@
 
 /* Begin PBXFileReference section */
 		5D0D86202A9AA70500A525E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5D281BB02ABC0C3D001CE599 /* WKWebViewConfiguration+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebViewConfiguration+App.swift"; sourceTree = "<group>"; };
+		5D281BB32ABC0CB0001CE599 /* BridgeComponent+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BridgeComponent+App.swift"; sourceTree = "<group>"; };
+		5D281BB52ABC0CB9001CE599 /* FormComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormComponent.swift; sourceTree = "<group>"; };
 		5DCC50D02A959DF900B529A0 /* <%= name %>.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = <%= name %>.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCC50D32A959DF900B529A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DCC50D52A959DF900B529A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5DCC50D72A959DF900B529A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5DCC50D72A959DF900B529A0 /* TurboWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurboWebViewController.swift; sourceTree = "<group>"; };
 		5DCC50DC2A959DFA00B529A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DCC50DF2A959DFA00B529A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DCC50E12A959DFA00B529A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,12 +50,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DCC50F12A95A66700B529A0 /* Turbo in Frameworks */,
+				5D281BAF2ABC0BBC001CE599 /* Strada in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D281BB22ABC0C8F001CE599 /* Strada */ = {
+			isa = PBXGroup;
+			children = (
+				5D281BB32ABC0CB0001CE599 /* BridgeComponent+App.swift */,
+				5D281BB52ABC0CB9001CE599 /* FormComponent.swift */,
+			);
+			path = Strada;
+			sourceTree = "<group>";
+		};
 		5D2FA5CD2A9DB1AB001AF2F1 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +94,7 @@
 		5DCC50D22A959DF900B529A0 /* <%= name %> */ = {
 			isa = PBXGroup;
 			children = (
+				5D281BB22ABC0C8F001CE599 /* Strada */,
 				5D2FA5CD2A9DB1AB001AF2F1 /* Configuration */,
 				5DCC50F42A95AC4E00B529A0 /* Controllers */,
 				5DCC50FB2A95B55200B529A0 /* Delegates */,
@@ -90,8 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				5DCC50ED2A95A27600B529A0 /* ErrorPresenter.swift */,
+				5D281BB02ABC0C3D001CE599 /* WKWebViewConfiguration+App.swift */,
 				5DCC50E72A95A0D900B529A0 /* TurboNavigationController.swift */,
-				5DCC50D72A959DF900B529A0 /* ViewController.swift */,
+				5DCC50D72A959DF900B529A0 /* TurboWebViewController.swift */,
 				5DDD58802AA9A8BE00FAC961 /* NumbersViewController.swift */,
 			);
 			path = Controllers;
@@ -134,6 +153,7 @@
 			name = <%= name %>;
 			packageProductDependencies = (
 				5DCC50F02A95A66700B529A0 /* Turbo */,
+				5D281BAE2ABC0BBC001CE599 /* Strada */,
 			);
 			productName = <%= name %>;
 			productReference = 5DCC50D02A959DF900B529A0 /* <%= name %>.app */;
@@ -165,6 +185,7 @@
 			mainGroup = 5DCC50C72A959DF800B529A0;
 			packageReferences = (
 				5DCC50EF2A95A66700B529A0 /* XCRemoteSwiftPackageReference "turbo-ios" */,
+				5D281BAD2ABC0BBC001CE599 /* XCRemoteSwiftPackageReference "strada-ios" */,
 			);
 			productRefGroup = 5DCC50D12A959DF900B529A0 /* Products */;
 			projectDirPath = "";
@@ -194,11 +215,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DCC50D82A959DF900B529A0 /* ViewController.swift in Sources */,
+				5DCC50D82A959DF900B529A0 /* TurboWebViewController.swift in Sources */,
 				5DDD58812AA9A8BE00FAC961 /* NumbersViewController.swift in Sources */,
 				5DCC50D42A959DF900B529A0 /* AppDelegate.swift in Sources */,
+				5D281BB62ABC0CB9001CE599 /* FormComponent.swift in Sources */,
 				5DCC50E82A95A0D900B529A0 /* TurboNavigationController.swift in Sources */,
+				5D281BB12ABC0C3D001CE599 /* WKWebViewConfiguration+App.swift in Sources */,
 				5DCC50D62A959DF900B529A0 /* SceneDelegate.swift in Sources */,
+				5D281BB42ABC0CB0001CE599 /* BridgeComponent+App.swift in Sources */,
 				5DCC50F32A95A7E600B529A0 /* <%= name %>.swift in Sources */,
 				5DCC50EE2A95A27600B529A0 /* ErrorPresenter.swift in Sources */,
 			);
@@ -418,17 +442,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5D281BAD2ABC0BBC001CE599 /* XCRemoteSwiftPackageReference "strada-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hotwired/strada-ios";
+			requirement = {
+				kind = exactVersion;
+				version = "1.0.0-beta1";
+			};
+		};
 		5DCC50EF2A95A66700B529A0 /* XCRemoteSwiftPackageReference "turbo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hotwired/turbo-ios";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
+				kind = exactVersion;
+				version = 7.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5D281BAE2ABC0BBC001CE599 /* Strada */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D281BAD2ABC0BBC001CE599 /* XCRemoteSwiftPackageReference "strada-ios" */;
+			productName = Strada;
+		};
 		5DCC50F02A95A66700B529A0 /* Turbo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5DCC50EF2A95A66700B529A0 /* XCRemoteSwiftPackageReference "turbo-ios" */;

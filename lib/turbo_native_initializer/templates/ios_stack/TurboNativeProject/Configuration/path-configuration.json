@@ -5,7 +5,7 @@
     { "patterns": ["/recede_historical_location"], "properties": { "presentation": "pop", "visitable": false } },
     { "patterns": ["/resume_historical_location"], "properties": { "presentation": "none", "visitable": false } },
     { "patterns": ["^/$"], "properties": { "presentation": "replace-all" } },
-    { "patterns": ["/new$", "/edit$", "/signin$"], "properties": { "presentation": "modal" } },
+    { "patterns": ["/new$", "/edit$", "/signin$", "/strada-form$"], "properties": { "presentation": "modal" } },
     { "patterns": ["/numbers$"], "properties": { "view-controller": "numbers" } }
   ]
 }

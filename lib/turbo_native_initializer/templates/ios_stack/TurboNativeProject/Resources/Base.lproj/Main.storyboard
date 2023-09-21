@@ -8,7 +8,7 @@
         <!--Turbo Navigation Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="TurboNavigationController" customModule="TurboNativeProjectIos" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController id="Y6W-OH-hqX" customClass="TurboNavigationController" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130" y="-2"/>
