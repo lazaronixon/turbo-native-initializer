@@ -1,0 +1,19 @@
+package <%= package_name %>.util
+
+import android.webkit.WebView
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
+import dev.hotwire.strada.Strada
+import <%= package_name %>.R
+import <%= package_name %>.strada.bridgeComponentFactories
+
+fun Toolbar.displayBackButtonAsCloseIcon() {
+    navigationIcon = ContextCompat.getDrawable(context, R.drawable.ic_close)
+}
+
+val WebView.customUserAgent: String
+    get() {
+        val turboSubstring = "Turbo Native Android"
+        val stradaSubstring = Strada.userAgentSubstring(bridgeComponentFactories)
+        return "$turboSubstring; $stradaSubstring; ${settings.userAgentString}"
+    }
