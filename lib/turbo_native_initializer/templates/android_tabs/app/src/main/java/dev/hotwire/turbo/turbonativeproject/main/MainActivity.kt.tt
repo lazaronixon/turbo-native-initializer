@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity(), TurboActivity {
         delegate.registerNavHostFragment(R.id.tab_one_nav_host)
         delegate.registerNavHostFragment(R.id.tab_two_nav_host)
 
+        Strada.config.jsonConverter = KotlinXJsonConverter()
+
         setupBottomNavigationView()
     }
 

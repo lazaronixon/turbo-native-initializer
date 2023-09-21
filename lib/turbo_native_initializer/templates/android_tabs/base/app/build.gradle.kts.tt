@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
 }
 
 android {
@@ -25,13 +26,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
+        viewBinding = true
         compose = true
     }
     composeOptions {
@@ -54,4 +56,8 @@ dependencies {
 
     // Turbo Android
     implementation("dev.hotwire:turbo:7.0.0")
+
+    // Strada
+    implementation("dev.hotwire:strada:1.0.0-beta2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
 }

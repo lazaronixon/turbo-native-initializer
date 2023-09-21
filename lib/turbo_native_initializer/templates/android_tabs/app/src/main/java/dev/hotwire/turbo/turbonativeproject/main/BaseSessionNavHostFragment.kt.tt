@@ -3,12 +3,14 @@ package <%= package_name %>.main
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import dev.hotwire.strada.Bridge
 import dev.hotwire.turbo.config.TurboPathConfiguration
 import <%= package_name %>.features.native.NumbersFragment
 import <%= package_name %>.features.web.WebFragment
 import <%= package_name %>.features.web.WebHomeFragment
 import <%= package_name %>.features.web.WebModalFragment
 import dev.hotwire.turbo.session.TurboSessionNavHostFragment
+import <%= package_name %>.util.customUserAgent
 import kotlin.reflect.KClass
 
 abstract class BaseSessionNavHostFragment : TurboSessionNavHostFragment() {
@@ -23,10 +25,9 @@ abstract class BaseSessionNavHostFragment : TurboSessionNavHostFragment() {
 
     override fun onSessionCreated() {
         super.onSessionCreated()
-        session.webView.settings.userAgentString = customUserAgent(session.webView)
-    }
+        session.webView.settings.userAgentString = session.webView.customUserAgent
 
-    private fun customUserAgent(webView: WebView): String {
-        return "Turbo Native Android ${webView.settings.userAgentString}"
+        // Initialize Strada bridge with new WebView instance
+        Bridge.initialize(session.webView)
     }
 }

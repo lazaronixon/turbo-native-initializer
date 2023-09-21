@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import dev.hotwire.turbo.nav.TurboNavGraphDestination
 import <%= package_name %>.R
+import <%= package_name %>.util.displayBackButtonAsCloseIcon
 
 @TurboNavGraphDestination(uri = "turbo://fragment/web/modal")
 class WebModalFragment : WebFragment() {
@@ -12,6 +13,6 @@ class WebModalFragment : WebFragment() {
     }
 
     private fun initToolbar() {
-        toolbarForNavigation()?.navigationIcon = context?.getDrawable(R.drawable.ic_close)
+        toolbarForNavigation()?.displayBackButtonAsCloseIcon()
     }
 }
