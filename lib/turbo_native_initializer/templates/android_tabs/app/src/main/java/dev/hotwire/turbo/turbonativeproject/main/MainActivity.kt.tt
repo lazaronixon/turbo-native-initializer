@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.ViewFlipper
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dev.hotwire.strada.KotlinXJsonConverter
+import dev.hotwire.strada.Strada
 import dev.hotwire.turbo.activities.TurboActivity
 import dev.hotwire.turbo.delegates.TurboActivityDelegate
 import <%= package_name %>.R
