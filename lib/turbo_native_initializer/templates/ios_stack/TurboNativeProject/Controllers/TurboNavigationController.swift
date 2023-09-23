@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import Turbo
+import Toast
 
 class TurboNavigationController : UINavigationController {
 
@@ -30,6 +31,11 @@ class TurboNavigationController : UINavigationController {
         if isVisitable(properties) {
             visit(viewController: viewController, with: options, modal: isModal(properties))
         }
+
+        // Display notice messages natively.
+        if let message = noticeMessage(from: url) {
+            view.makeToast(message.replacingOccurrences(of: "+", with: " "), position: .top)
+        }        
     }
 }
 
@@ -64,6 +70,10 @@ extension TurboNavigationController {
 
     private func isVisitable(_ properties: PathProperties) -> Bool {
         return properties["visitable"] as? Bool ?? true
+    }
+
+    private func noticeMessage(from url: URL) -> String? {
+        URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.first(where: { $0.name == "notice" })?.value
     }
 
     private func makeViewController(for url: URL, properties: PathProperties = [:]) -> UIViewController {
