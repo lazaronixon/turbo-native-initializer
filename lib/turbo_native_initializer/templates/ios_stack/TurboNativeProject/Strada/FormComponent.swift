@@ -50,10 +50,11 @@ final class FormComponent: BridgeComponent {
     private func configureBarButton(with title: String) {
         guard let viewController else { return }
 
-        let item = UIBarButtonItem(title: title,
-                                   style: .plain,
-                                   target: self,
-                                   action: #selector(performAction))
+        let button = UIButton(configuration: .filled())
+        button.setTitle(title, for: .normal)
+        button.addTarget(self, action: #selector(performAction), for: .touchUpInside)
+
+        let item = UIBarButtonItem(customView: button)
 
         viewController.navigationItem.rightBarButtonItem = item
         submitBarButtonItem = item
