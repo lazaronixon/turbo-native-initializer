@@ -10,7 +10,7 @@ final class TurboWebViewController: VisitableViewController, ErrorPresenter, Bri
     }()
 
     private lazy var dismissModalButton = {
-        UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissModal))
+        UIBarButtonItem(image: UIImage(systemName: "chevron.down"), style: .plain, target: self, action: #selector(dismissModal))
     }()
 
     // MARK: View lifecycle
