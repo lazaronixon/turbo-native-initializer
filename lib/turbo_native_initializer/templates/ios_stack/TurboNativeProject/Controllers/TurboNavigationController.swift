@@ -32,10 +32,10 @@ class TurboNavigationController : UINavigationController {
             visit(viewController: viewController, with: options, modal: isModal(properties))
         }
 
-        // Display notice messages natively.
+        // Display notice messages natively
         if let message = noticeMessage(from: url) {
             view.makeToast(message.replacingOccurrences(of: "+", with: " "), position: .top)
-        }        
+        }
     }
 }
 
