@@ -6,18 +6,20 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.browser.customtabs.CustomTabsIntent.SHARE_STATE_ON
 import androidx.navigation.NavOptions
 import androidx.navigation.navOptions
+import com.google.android.material.snackbar.Snackbar
 import dev.hotwire.strada.BridgeDestination
 import dev.hotwire.turbo.config.TurboPathConfigurationProperties
 import dev.hotwire.turbo.config.context
 import <%= package_name %>.R
 import <%= package_name %>.util.BASE_URL
 import dev.hotwire.turbo.nav.TurboNavDestination
+import dev.hotwire.turbo.nav.TurboNavPresentationContext.DEFAULT
 import dev.hotwire.turbo.nav.TurboNavPresentationContext.MODAL
 
 interface NavDestination : TurboNavDestination, BridgeDestination {
     override fun shouldNavigateTo(newLocation: String): Boolean {
         return when (isNavigable(newLocation)) {
-            true -> true
+            true -> { displayNoticeMessage(newLocation); true }
             else -> { launchCustomTab(newLocation); false }
         }
     }
@@ -38,6 +40,14 @@ interface NavDestination : TurboNavDestination, BridgeDestination {
 
     private fun isNavigable(location: String): Boolean {
         return location.startsWith(BASE_URL)
+    }
+
+    private fun displayNoticeMessage(location: String) {
+        var message = Uri.parse(location).getQueryParameter("notice")
+
+        if (pathProperties.context == DEFAULT && message != null) {
+            Snackbar.make(fragment.requireView(), message, Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     private fun launchCustomTab(location: String) {

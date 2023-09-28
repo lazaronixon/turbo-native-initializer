@@ -15,8 +15,11 @@ class MainActivity : AppCompatActivity(), TurboActivity {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Strada.config.jsonConverter = KotlinXJsonConverter()
-
         delegate = TurboActivityDelegate(this, R.id.main_nav_host)
+        configApp()
+    }
+
+    private fun configApp() {
+        Strada.config.jsonConverter = KotlinXJsonConverter()
     }
 }

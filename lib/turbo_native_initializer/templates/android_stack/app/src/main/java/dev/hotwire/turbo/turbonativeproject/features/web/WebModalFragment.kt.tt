@@ -3,7 +3,6 @@ package <%= package_name %>.features.web
 import android.os.Bundle
 import android.view.View
 import dev.hotwire.turbo.nav.TurboNavGraphDestination
-import <%= package_name %>.R
 import <%= package_name %>.util.displayBackButtonAsCloseIcon
 
 @TurboNavGraphDestination(uri = "turbo://fragment/web/modal")

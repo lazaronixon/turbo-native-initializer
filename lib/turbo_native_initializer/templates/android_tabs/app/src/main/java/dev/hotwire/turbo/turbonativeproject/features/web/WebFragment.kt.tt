@@ -9,8 +9,6 @@ import dev.hotwire.turbo.nav.TurboNavGraphDestination
 import <%= package_name %>.R
 import <%= package_name %>.strada.bridgeComponentFactories
 import dev.hotwire.turbo.views.TurboWebView
-import dev.hotwire.turbo.visit.TurboVisitAction.REPLACE
-import dev.hotwire.turbo.visit.TurboVisitOptions
 
 @TurboNavGraphDestination(uri = "turbo://fragment/web")
 open class WebFragment : TurboWebFragment(), NavDestination {

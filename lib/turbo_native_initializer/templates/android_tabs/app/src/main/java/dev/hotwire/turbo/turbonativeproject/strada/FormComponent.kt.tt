@@ -12,19 +12,14 @@ import dev.hotwire.strada.Message
 import <%= package_name %>.R
 import <%= package_name %>.base.NavDestination
 import <%= package_name %>.databinding.FormComponentSubmitBinding
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-/**
- * Bridge component to display a submit button in the native toolbar,
- * which will submit the form on the page when tapped.
- */
 class FormComponent(
     name: String,
     private val delegate: BridgeDelegate<NavDestination>
 ) : BridgeComponent<NavDestination>(name, delegate) {
 
-    private val submitButtonItemId = 37
+    private val submitButtonItemId = 10
     private var submitMenuItem: MenuItem? = null
     private val fragment: Fragment
         get() = delegate.destination.fragment
@@ -36,7 +31,7 @@ class FormComponent(
             "connect" -> handleConnectEvent(message)
             "submitEnabled" -> handleSubmitEnabled()
             "submitDisabled" -> handleSubmitDisabled()
-            else -> Log.w("TurboDemo", "Unknown event for message: $message")
+            else -> Log.w("TurboNative", "Unknown event for message: $message")
         }
     }
 
@@ -87,6 +82,6 @@ class FormComponent(
 
     @Serializable
     data class MessageData(
-        @SerialName("submitTitle") val title: String
+        val title: String
     )
 }

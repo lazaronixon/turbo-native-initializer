@@ -3,5 +3,7 @@ package <%= package_name %>.strada
 import dev.hotwire.strada.BridgeComponentFactory
 
 val bridgeComponentFactories = listOf(
-    BridgeComponentFactory("form", ::FormComponent)
+    BridgeComponentFactory("form", ::FormComponent),
+    BridgeComponentFactory("nav-button", ::NavButtonComponent),
+    BridgeComponentFactory("flash-message", ::FlashMessageComponent),
 )
