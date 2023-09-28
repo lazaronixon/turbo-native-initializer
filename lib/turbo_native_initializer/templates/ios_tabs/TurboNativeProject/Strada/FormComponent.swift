@@ -36,7 +36,7 @@ final class FormComponent: BridgeComponent {
 
     private func handleConnectEvent(message: Message) {
         guard let data: MessageData = message.data() else { return }
-        configureBarButton(with: data.submitTitle)
+        configureBarButton(with: data.title)
     }
 
     private func handleSubmitEnabled() {
@@ -75,6 +75,6 @@ private extension FormComponent {
 
 private extension FormComponent {
     struct MessageData: Decodable {
-        let submitTitle: String
+        let title: String
     }
 }
