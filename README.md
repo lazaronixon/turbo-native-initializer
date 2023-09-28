@@ -11,6 +11,8 @@ A turbo native project generator for iOS and Android.
 - Added presentations `pop`, `refresh`, `none`, `replace`, `clear-all`, and `replace-all`. (iOS)
 - Added `visitable` property in order to avoid visits. (iOS)
 - Added support for tab navigation. (iOS/Android)
+- Added support for flash messages. (iOS/Android)
+- Added navigation bar button component. (iOS/Android)
 
 ## Installation
 
@@ -56,7 +58,7 @@ Options:
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment, you can run something like `TurboNativeInitializer::Generator.start(["TurboNativeProject", "--platform=ios", "--navigation=stack"])`.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
