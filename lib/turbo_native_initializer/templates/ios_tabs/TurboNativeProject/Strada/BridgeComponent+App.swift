@@ -3,6 +3,6 @@ import Strada
 
 extension BridgeComponent {
     static var allTypes: [BridgeComponent.Type] {
-        [FormComponent.self, NavButtonComponent.self]
+        [FormComponent.self, NavButtonComponent.self, FlashMessageComponent.self]
     }
 }

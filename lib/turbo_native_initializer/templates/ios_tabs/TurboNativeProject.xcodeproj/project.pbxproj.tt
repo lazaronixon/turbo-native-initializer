@@ -10,6 +10,7 @@
 		5D0735D42AC514F800AC547A /* UIViewController+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0735D32AC514F800AC547A /* UIViewController+Toast.swift */; };
 		5D0D861F2A9AA70500A525E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D0D86212A9AA70500A525E9 /* Main.storyboard */; };
 		5D1F2EC12ABEB12300B2819A /* NavButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1F2EC02ABEB12300B2819A /* NavButtonComponent.swift */; };
+		5D2381412AC53D8900FABA1F /* FlashMessageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2381402AC53D8900FABA1F /* FlashMessageComponent.swift */; };
 		5D8AB2FB2ABC117F00C6A82F /* FormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AB2F92ABC117F00C6A82F /* FormComponent.swift */; };
 		5D8AB2FC2ABC117F00C6A82F /* BridgeComponent+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AB2FA2ABC117F00C6A82F /* BridgeComponent+App.swift */; };
 		5D8AB2FE2ABC119900C6A82F /* WKWebViewConfiguration+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AB2FD2ABC119900C6A82F /* WKWebViewConfiguration+App.swift */; };
@@ -31,6 +32,7 @@
 		5D0735D32AC514F800AC547A /* UIViewController+Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Toast.swift"; sourceTree = "<group>"; };
 		5D0D86202A9AA70500A525E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D1F2EC02ABEB12300B2819A /* NavButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonComponent.swift; sourceTree = "<group>"; };
+		5D2381402AC53D8900FABA1F /* FlashMessageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashMessageComponent.swift; sourceTree = "<group>"; };
 		5D8AB2F92ABC117F00C6A82F /* FormComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormComponent.swift; sourceTree = "<group>"; };
 		5D8AB2FA2ABC117F00C6A82F /* BridgeComponent+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BridgeComponent+App.swift"; sourceTree = "<group>"; };
 		5D8AB2FD2ABC119900C6A82F /* WKWebViewConfiguration+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WKWebViewConfiguration+App.swift"; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				5D8AB2FA2ABC117F00C6A82F /* BridgeComponent+App.swift */,
 				5D8AB2F92ABC117F00C6A82F /* FormComponent.swift */,
 				5D1F2EC02ABEB12300B2819A /* NavButtonComponent.swift */,
+				5D2381402AC53D8900FABA1F /* FlashMessageComponent.swift */,
 			);
 			path = Strada;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			files = (
 				5DCC50D82A959DF900B529A0 /* TurboWebViewController.swift in Sources */,
 				5DDD58812AA9A8BE00FAC961 /* NumbersViewController.swift in Sources */,
+				5D2381412AC53D8900FABA1F /* FlashMessageComponent.swift in Sources */,
 				5D1F2EC12ABEB12300B2819A /* NavButtonComponent.swift in Sources */,
 				5DCC50D42A959DF900B529A0 /* AppDelegate.swift in Sources */,
 				5DCC50E82A95A0D900B529A0 /* TurboNavigationController.swift in Sources */,
