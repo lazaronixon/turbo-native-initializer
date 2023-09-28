@@ -10,7 +10,7 @@ public extension UIViewController {
         NSLayoutConstraint.activate([
             toastView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             toastView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            toastView.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, constant: -10),
+            toastView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -10)
         ])
     }
 }
