@@ -2,15 +2,17 @@ import SwiftUI
 
 public extension UIViewController {
     func presentToast(_ message: String) {
+        guard let root = view.window?.rootViewController else { return }
+
         let toastView = ToastView(message: message)
         toastView.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addSubview(toastView)
+        root.view.addSubview(toastView)
 
         NSLayoutConstraint.activate([
-            toastView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            toastView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            toastView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -10)
+            toastView.centerXAnchor.constraint(equalTo: root.view.centerXAnchor),
+            toastView.topAnchor.constraint(equalTo: root.view.safeAreaLayoutGuide.topAnchor),
+            toastView.widthAnchor.constraint(equalTo: root.view.safeAreaLayoutGuide.widthAnchor, constant: -10)
         ])
     }
 }
