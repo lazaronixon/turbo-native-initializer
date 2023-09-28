@@ -20,7 +20,7 @@ public extension UIViewController {
 public class ToastView: UIView {
     convenience init(message: String) {
         self.init(frame: .zero)
-        self.backgroundColor = .black.withAlphaComponent(0.9)
+        self.backgroundColor = .black
         self.layer.cornerRadius = 10
 
         let messageLabel = UILabel()
@@ -40,14 +40,20 @@ public class ToastView: UIView {
 
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismiss)))
 
-        UIView.animate(withDuration: 0.5, delay: 2.5, options: [.curveEaseOut, .allowUserInteraction], animations: {
-            self.alpha = 0.1
-        }) { _ in
-            self.removeFromSuperview()
-        }
+        self.alpha = .zero
+
+        UIView.animate(withDuration: 0.5, delay: .zero, animations: {
+            self.alpha = 0.9
+        }, completion: { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { self.dismiss() }
+        })
     }
 
-    @objc private func dismiss() {
-        removeFromSuperview()
+    @objc func dismiss() {
+        UIView.animate(withDuration: 0.5, delay: .zero, animations: {
+            self.alpha = .zero
+        }, completion: { _ in
+            self.removeFromSuperview()
+        })
     }
 }
