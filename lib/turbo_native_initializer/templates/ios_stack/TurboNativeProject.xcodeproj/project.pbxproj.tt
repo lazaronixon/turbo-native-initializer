@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		5D0D861F2A9AA70500A525E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D0D86212A9AA70500A525E9 /* Main.storyboard */; };
 		5D1F2EC12ABEB12300B2819A /* NavButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1F2EC02ABEB12300B2819A /* NavButtonComponent.swift */; };
-		5D1F2EC72ABF43FE00B2819A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 5D1F2EC62ABF43FE00B2819A /* Toast */; };
 		5D281BAF2ABC0BBC001CE599 /* Strada in Frameworks */ = {isa = PBXBuildFile; productRef = 5D281BAE2ABC0BBC001CE599 /* Strada */; };
 		5D281BB12ABC0C3D001CE599 /* WKWebViewConfiguration+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D281BB02ABC0C3D001CE599 /* WKWebViewConfiguration+App.swift */; };
 		5D281BB42ABC0CB0001CE599 /* BridgeComponent+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D281BB32ABC0CB0001CE599 /* BridgeComponent+App.swift */; };
 		5D281BB62ABC0CB9001CE599 /* FormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D281BB52ABC0CB9001CE599 /* FormComponent.swift */; };
+		5DAF71B72AC3FB53002D04FE /* UIViewController+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF71B62AC3FB53002D04FE /* UIViewController+Toast.swift */; };
 		5DCC50D42A959DF900B529A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50D32A959DF900B529A0 /* AppDelegate.swift */; };
 		5DCC50D62A959DF900B529A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50D52A959DF900B529A0 /* SceneDelegate.swift */; };
 		5DCC50D82A959DF900B529A0 /* TurboWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50D72A959DF900B529A0 /* TurboWebViewController.swift */; };
@@ -33,6 +33,7 @@
 		5D281BB02ABC0C3D001CE599 /* WKWebViewConfiguration+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebViewConfiguration+App.swift"; sourceTree = "<group>"; };
 		5D281BB32ABC0CB0001CE599 /* BridgeComponent+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BridgeComponent+App.swift"; sourceTree = "<group>"; };
 		5D281BB52ABC0CB9001CE599 /* FormComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormComponent.swift; sourceTree = "<group>"; };
+		5DAF71B62AC3FB53002D04FE /* UIViewController+Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Toast.swift"; sourceTree = "<group>"; };
 		5DCC50D02A959DF900B529A0 /* <%= name %>.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = <%= name %>.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCC50D32A959DF900B529A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DCC50D52A959DF900B529A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D1F2EC72ABF43FE00B2819A /* Toast in Frameworks */,
 				5DCC50F12A95A66700B529A0 /* Turbo in Frameworks */,
 				5D281BAF2ABC0BBC001CE599 /* Strada in Frameworks */,
 			);
@@ -113,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				5DCC50ED2A95A27600B529A0 /* ErrorPresenter.swift */,
+				5DAF71B62AC3FB53002D04FE /* UIViewController+Toast.swift */,
 				5D281BB02ABC0C3D001CE599 /* WKWebViewConfiguration+App.swift */,
 				5DCC50E72A95A0D900B529A0 /* TurboNavigationController.swift */,
 				5DCC50D72A959DF900B529A0 /* TurboWebViewController.swift */,
@@ -159,7 +160,6 @@
 			packageProductDependencies = (
 				5DCC50F02A95A66700B529A0 /* Turbo */,
 				5D281BAE2ABC0BBC001CE599 /* Strada */,
-				5D1F2EC62ABF43FE00B2819A /* Toast */,
 			);
 			productName = <%= name %>;
 			productReference = 5DCC50D02A959DF900B529A0 /* <%= name %>.app */;
@@ -192,7 +192,6 @@
 			packageReferences = (
 				5DCC50EF2A95A66700B529A0 /* XCRemoteSwiftPackageReference "turbo-ios" */,
 				5D281BAD2ABC0BBC001CE599 /* XCRemoteSwiftPackageReference "strada-ios" */,
-				5D1F2EC52ABF43FE00B2819A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 5DCC50D12A959DF900B529A0 /* Products */;
 			projectDirPath = "";
@@ -228,6 +227,7 @@
 				5DCC50D42A959DF900B529A0 /* AppDelegate.swift in Sources */,
 				5D281BB62ABC0CB9001CE599 /* FormComponent.swift in Sources */,
 				5DCC50E82A95A0D900B529A0 /* TurboNavigationController.swift in Sources */,
+				5DAF71B72AC3FB53002D04FE /* UIViewController+Toast.swift in Sources */,
 				5D281BB12ABC0C3D001CE599 /* WKWebViewConfiguration+App.swift in Sources */,
 				5DCC50D62A959DF900B529A0 /* SceneDelegate.swift in Sources */,
 				5D281BB42ABC0CB0001CE599 /* BridgeComponent+App.swift in Sources */,
@@ -450,14 +450,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5D1F2EC52ABF43FE00B2819A /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scalessec/Toast-Swift";
-			requirement = {
-				kind = exactVersion;
-				version = 5.0.1;
-			};
-		};
 		5D281BAD2ABC0BBC001CE599 /* XCRemoteSwiftPackageReference "strada-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hotwired/strada-ios";
@@ -477,11 +469,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5D1F2EC62ABF43FE00B2819A /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5D1F2EC52ABF43FE00B2819A /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
-		};
 		5D281BAE2ABC0BBC001CE599 /* Strada */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5D281BAD2ABC0BBC001CE599 /* XCRemoteSwiftPackageReference "strada-ios" */;

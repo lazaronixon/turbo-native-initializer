@@ -1,7 +1,6 @@
 import Foundation
 import UIKit
 import Turbo
-import Toast
 
 class TurboNavigationController : UINavigationController {
 
@@ -34,7 +33,7 @@ class TurboNavigationController : UINavigationController {
 
         // Display notice messages natively
         if let message = noticeMessage(from: url) {
-            view.makeToast(message.replacingOccurrences(of: "+", with: " "), position: .top)
+            presentToast(message.replacingOccurrences(of: "+", with: " "))
         }
     }
 }

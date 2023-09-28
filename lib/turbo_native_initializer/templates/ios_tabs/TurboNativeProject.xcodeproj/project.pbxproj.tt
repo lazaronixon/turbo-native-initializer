@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0735D42AC514F800AC547A /* UIViewController+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0735D32AC514F800AC547A /* UIViewController+Toast.swift */; };
 		5D0D861F2A9AA70500A525E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D0D86212A9AA70500A525E9 /* Main.storyboard */; };
 		5D1F2EC12ABEB12300B2819A /* NavButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1F2EC02ABEB12300B2819A /* NavButtonComponent.swift */; };
-		5D1F2EC72ABF43FE00B2819A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 5D1F2EC62ABF43FE00B2819A /* Toast */; };
 		5D8AB2FB2ABC117F00C6A82F /* FormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AB2F92ABC117F00C6A82F /* FormComponent.swift */; };
 		5D8AB2FC2ABC117F00C6A82F /* BridgeComponent+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AB2FA2ABC117F00C6A82F /* BridgeComponent+App.swift */; };
 		5D8AB2FE2ABC119900C6A82F /* WKWebViewConfiguration+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AB2FD2ABC119900C6A82F /* WKWebViewConfiguration+App.swift */; };
@@ -28,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D0735D32AC514F800AC547A /* UIViewController+Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Toast.swift"; sourceTree = "<group>"; };
 		5D0D86202A9AA70500A525E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D1F2EC02ABEB12300B2819A /* NavButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonComponent.swift; sourceTree = "<group>"; };
 		5D8AB2F92ABC117F00C6A82F /* FormComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormComponent.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D1F2EC72ABF43FE00B2819A /* Toast in Frameworks */,
 				5DCC50F12A95A66700B529A0 /* Turbo in Frameworks */,
 				5D8AB3012ABC127300C6A82F /* Strada in Frameworks */,
 			);
@@ -113,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				5D8AB2FD2ABC119900C6A82F /* WKWebViewConfiguration+App.swift */,
+				5D0735D32AC514F800AC547A /* UIViewController+Toast.swift */,
 				5DCC50ED2A95A27600B529A0 /* ErrorPresenter.swift */,
 				5DCC50E72A95A0D900B529A0 /* TurboNavigationController.swift */,
 				5DCC50D72A959DF900B529A0 /* TurboWebViewController.swift */,
@@ -159,7 +160,6 @@
 			packageProductDependencies = (
 				5DCC50F02A95A66700B529A0 /* Turbo */,
 				5D8AB3002ABC127300C6A82F /* Strada */,
-				5D1F2EC62ABF43FE00B2819A /* Toast */,
 			);
 			productName = <%= name %>;
 			productReference = 5DCC50D02A959DF900B529A0 /* <%= name %>.app */;
@@ -192,7 +192,6 @@
 			packageReferences = (
 				5DCC50EF2A95A66700B529A0 /* XCRemoteSwiftPackageReference "turbo-ios" */,
 				5D8AB2FF2ABC127300C6A82F /* XCRemoteSwiftPackageReference "strada-ios" */,
-				5D1F2EC52ABF43FE00B2819A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 5DCC50D12A959DF900B529A0 /* Products */;
 			projectDirPath = "";
@@ -232,6 +231,7 @@
 				5D8AB2FB2ABC117F00C6A82F /* FormComponent.swift in Sources */,
 				5D8AB2FC2ABC117F00C6A82F /* BridgeComponent+App.swift in Sources */,
 				5DCC50F32A95A7E600B529A0 /* <%= name %>.swift in Sources */,
+				5D0735D42AC514F800AC547A /* UIViewController+Toast.swift in Sources */,
 				5DCC50EE2A95A27600B529A0 /* ErrorPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,14 +450,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5D1F2EC52ABF43FE00B2819A /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scalessec/Toast-Swift";
-			requirement = {
-				kind = exactVersion;
-				version = 5.0.1;
-			};
-		};
 		5D8AB2FF2ABC127300C6A82F /* XCRemoteSwiftPackageReference "strada-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hotwired/strada-ios";
@@ -477,11 +469,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5D1F2EC62ABF43FE00B2819A /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5D1F2EC52ABF43FE00B2819A /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
-		};
 		5D8AB3002ABC127300C6A82F /* Strada */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5D8AB2FF2ABC127300C6A82F /* XCRemoteSwiftPackageReference "strada-ios" */;
