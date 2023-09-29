@@ -4,22 +4,44 @@ public extension UIViewController {
     func presentToast(_ message: String) {
         guard let root = view.window?.rootViewController else { return }
 
+        removeToastViews(from: root)
+
         let toastView = ToastView(message: message)
         toastView.translatesAutoresizingMaskIntoConstraints = false
 
         root.view.addSubview(toastView)
 
         NSLayoutConstraint.activate([
-            toastView.centerXAnchor.constraint(equalTo: root.view.centerXAnchor),
             toastView.topAnchor.constraint(equalTo: root.view.safeAreaLayoutGuide.topAnchor),
-            toastView.widthAnchor.constraint(equalTo: root.view.safeAreaLayoutGuide.widthAnchor, constant: -10)
+            toastView.centerXAnchor.constraint(equalTo: root.view.centerXAnchor)
         ])
+
+        let widthConstraint = toastView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -10)
+        widthConstraint.priority = .defaultHigh
+
+        let maxWidthConstraint = toastView.widthAnchor.constraint(lessThanOrEqualToConstant: 600)
+        maxWidthConstraint.priority = .required
+
+        NSLayoutConstraint.activate([
+            widthConstraint, maxWidthConstraint
+        ])
+    }
+
+    fileprivate func removeToastViews(from root: UIViewController) {
+        root.view.subviews.filter({ $0 is ToastView }).forEach({ toast in
+            toast.removeFromSuperview()
+        })
     }
 }
 
 public class ToastView: UIView {
+
+    private var duration = 2.5
+
     convenience init(message: String) {
         self.init(frame: .zero)
+
+        self.alpha = .zero
         self.backgroundColor = .black
         self.layer.cornerRadius = 10
 
@@ -40,17 +62,15 @@ public class ToastView: UIView {
 
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismiss)))
 
-        self.alpha = .zero
-
-        UIView.animate(withDuration: 0.5, delay: .zero, animations: {
+        UIView.animate(withDuration: 0.5, delay: .zero, options: .curveEaseIn, animations: {
             self.alpha = 0.9
         }, completion: { _ in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { self.dismiss() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.duration) { self.dismiss() }
         })
     }
 
-    @objc func dismiss() {
-        UIView.animate(withDuration: 0.5, delay: .zero, animations: {
+    @objc private func dismiss() {
+        UIView.animate(withDuration: 0.5, delay: .zero, options: .curveEaseOut, animations: {
             self.alpha = .zero
         }, completion: { _ in
             self.removeFromSuperview()
