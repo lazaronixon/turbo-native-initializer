@@ -1,6 +1,9 @@
 package <%= package_name %>.strada
 
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import dev.hotwire.strada.BridgeComponent
@@ -8,6 +11,7 @@ import dev.hotwire.strada.BridgeDelegate
 import dev.hotwire.strada.Message
 import <%= package_name %>.R
 import <%= package_name %>.base.NavDestination
+import <%= package_name %>.databinding.NavButtonComponentBinding
 import kotlinx.serialization.Serializable
 
 class NavButtonComponent(
@@ -15,6 +19,8 @@ class NavButtonComponent(
     private val delegate: BridgeDelegate<NavDestination>
 ) : BridgeComponent<NavDestination>(name, delegate) {
 
+    private val navButtonItemId = 10
+    private var navButtonMenuItem: MenuItem? = null
     private val fragment: Fragment
         get() = delegate.destination.fragment
     private val toolbar: Toolbar?
@@ -34,26 +40,27 @@ class NavButtonComponent(
     }
 
     private fun showToolbarButton(data: MessageData) {
-        val toolbar = toolbar ?: return
+        val menu = toolbar?.menu ?: return
+        val inflater = LayoutInflater.from(fragment.requireContext())
+        val binding = NavButtonComponentBinding.inflate(inflater)
+        val order = 999 // Show as the right-most button
 
-        toolbar.menu.findItem(R.id.nav_button)?.apply {
-            isVisible = true
-            title = data.title
+        binding.navButton.apply {
+            text = data.title
+            setOnClickListener {
+                performAction()
+            }
         }
 
-        toolbar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.nav_button -> {
-                    performClick()
-                    true
-                }
-                else -> false
-            }
+        menu.removeItem(navButtonItemId)
+        navButtonMenuItem = menu.add(Menu.NONE, navButtonItemId, order, data.title).apply {
+            actionView = binding.root
+            setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         }
     }
 
-    private fun performClick() {
-        replyTo("connect")
+    private fun performAction(): Boolean {
+        return replyTo("connect")
     }
 
     @Serializable
