@@ -36,14 +36,14 @@ class NavButtonComponent(
     private fun showToolbarButton(data: MessageData) {
         val toolbar = toolbar ?: return
 
-        toolbar.menu.findItem(R.id.navButton)?.apply {
+        toolbar.menu.findItem(R.id.nav_button)?.apply {
             isVisible = true
             title = data.title
         }
 
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.navButton -> {
+                R.id.nav_button -> {
                     performClick()
                     true
                 }
