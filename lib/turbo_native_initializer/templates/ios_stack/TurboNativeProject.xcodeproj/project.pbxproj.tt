@@ -14,6 +14,7 @@
 		5D281BB42ABC0CB0001CE599 /* BridgeComponent+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D281BB32ABC0CB0001CE599 /* BridgeComponent+App.swift */; };
 		5D281BB62ABC0CB9001CE599 /* FormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D281BB52ABC0CB9001CE599 /* FormComponent.swift */; };
 		5D91C5402AC538960046D872 /* FlashMessageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91C53F2AC538960046D872 /* FlashMessageComponent.swift */; };
+		5DA9C92F2AC7E38100FEA7E6 /* MenuComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA9C92E2AC7E38100FEA7E6 /* MenuComponent.swift */; };
 		5DAF71B72AC3FB53002D04FE /* UIViewController+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF71B62AC3FB53002D04FE /* UIViewController+Toast.swift */; };
 		5DCC50D42A959DF900B529A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50D32A959DF900B529A0 /* AppDelegate.swift */; };
 		5DCC50D62A959DF900B529A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC50D52A959DF900B529A0 /* SceneDelegate.swift */; };
@@ -35,6 +36,7 @@
 		5D281BB32ABC0CB0001CE599 /* BridgeComponent+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BridgeComponent+App.swift"; sourceTree = "<group>"; };
 		5D281BB52ABC0CB9001CE599 /* FormComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormComponent.swift; sourceTree = "<group>"; };
 		5D91C53F2AC538960046D872 /* FlashMessageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashMessageComponent.swift; sourceTree = "<group>"; };
+		5DA9C92E2AC7E38100FEA7E6 /* MenuComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuComponent.swift; sourceTree = "<group>"; };
 		5DAF71B62AC3FB53002D04FE /* UIViewController+Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Toast.swift"; sourceTree = "<group>"; };
 		5DCC50D02A959DF900B529A0 /* <%= name %>.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = <%= name %>.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCC50D32A959DF900B529A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				5D281BB52ABC0CB9001CE599 /* FormComponent.swift */,
 				5D1F2EC02ABEB12300B2819A /* NavButtonComponent.swift */,
 				5D91C53F2AC538960046D872 /* FlashMessageComponent.swift */,
+				5DA9C92E2AC7E38100FEA7E6 /* MenuComponent.swift */,
 			);
 			path = Strada;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DA9C92F2AC7E38100FEA7E6 /* MenuComponent.swift in Sources */,
 				5DCC50D82A959DF900B529A0 /* TurboWebViewController.swift in Sources */,
 				5DDD58812AA9A8BE00FAC961 /* NumbersViewController.swift in Sources */,
 				5D91C5402AC538960046D872 /* FlashMessageComponent.swift in Sources */,

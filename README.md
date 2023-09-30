@@ -12,7 +12,6 @@ A turbo native project generator for iOS and Android.
 - Added `visitable` property in order to avoid visits. (iOS)
 - Added support for tab navigation. (iOS/Android)
 - Added support for flash messages. (iOS/Android)
-- Added navigation bar button component. (iOS/Android)
 - Integrated with the gem [strada-rails](https://github.com/lazaronixon/strada-rails).
 
 ## Installation
