@@ -25,6 +25,7 @@ open class WebFragment : TurboWebFragment(), NavDestination {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupMenu()
         viewLifecycleOwner.lifecycle.addObserver(bridgeDelegate)
     }
 
@@ -58,5 +59,9 @@ open class WebFragment : TurboWebFragment(), NavDestination {
 
     override fun createErrorView(statusCode: Int): View {
         return layoutInflater.inflate(R.layout.error_web, null)
+    }
+
+    private fun setupMenu() {
+        toolbarForNavigation()?.inflateMenu(R.menu.web)
     }
 }
