@@ -6,4 +6,5 @@ val bridgeComponentFactories = listOf(
     BridgeComponentFactory("form", ::FormComponent),
     BridgeComponentFactory("nav-button", ::NavButtonComponent),
     BridgeComponentFactory("flash-message", ::FlashMessageComponent),
+    BridgeComponentFactory("menu", ::MenuComponent)
 )
