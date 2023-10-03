@@ -14,14 +14,8 @@ final class SceneDelegate: UIResponder {
     private let rootURL2 = <%= name %>.homeURL2
 
     private var tabBarController: UITabBarController!
-
-    private lazy var navigationController1 = {
-        tabBarController.viewControllers![0] as! TurboNavigationController
-    }()
-
-    private lazy var navigationController2 = {
-        tabBarController.viewControllers![1] as! TurboNavigationController
-    }()
+    private var navigationController1: TurboNavigationController!
+    private var navigationController2: TurboNavigationController!
 
     private func navigationController() -> TurboNavigationController {
         tabBarController.selectedViewController as! TurboNavigationController
@@ -30,13 +24,13 @@ final class SceneDelegate: UIResponder {
     // MARK: - Setup
 
     private func configureRootViewController() {
-        guard let window = window else { fatalError() }
+        tabBarController = window!.rootViewController as? UITabBarController
 
-        tabBarController = window.rootViewController as? UITabBarController
-
+        navigationController1 = tabBarController.viewControllers![0] as? TurboNavigationController
         navigationController1.session = session1
         navigationController1.modalSession = modalSession
 
+        navigationController2 = tabBarController.viewControllers![1] as? TurboNavigationController
         navigationController2.session = session2
         navigationController2.modalSession = modalSession
     }
@@ -88,6 +82,14 @@ extension SceneDelegate: SessionDelegate {
         navigationController().route(url: proposal.url, options: proposal.options, properties: proposal.properties)
     }
 
+    func session(_ session: Session, openExternalURL url: URL) {
+        if url.host == baseURL.host, !url.pathExtension.isEmpty {
+            navigationController().present(SFSafariViewController(url: url), animated: true)
+        } else {
+            UIApplication.shared.open(url)
+        }
+    }
+
     func session(_ session: Session, didFailRequestForVisitable visitable: Visitable, error: Error) {
         if let errorPresenter = visitable as? ErrorPresenter {
             errorPresenter.presentError(error) { session.reload() }
@@ -96,17 +98,10 @@ extension SceneDelegate: SessionDelegate {
         }
     }
 
-    // When a form submission completes in the modal session, we need to
-    // manually clear the snapshot cache in the default session, since we
-    // don't want potentially stale cached snapshots to be used
     func sessionDidFinishFormSubmission(_ session: Session) {
         if (session == modalSession) {
             self.session().clearSnapshotCache()
         }
-    }
-
-    func sessionDidLoadWebView(_ session: Session) {
-        session.webView.navigationDelegate = self
     }
 
     func sessionWebViewProcessDidTerminate(_ session: Session) {
@@ -114,40 +109,11 @@ extension SceneDelegate: SessionDelegate {
     }
 }
 
-extension SceneDelegate: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if navigationAction.navigationType == .linkActivated {
-            // Any link that's not on the same domain as the Turbo root url will go through here
-            // Other links on the domain, but that have an extension that is non-html will also go here
-            // You can decide how to handle those, by default if you're not the navigationDelegate
-            // the Session will open them in the default browser
-
-            let url = navigationAction.request.url!
-
-            // For this demo, we'll load files from our domain in a SafariViewController so you
-            // don't need to leave the app. You might expand this in your app
-            // to open all audio/video/images in a native media viewer
-            if url.host == baseURL.host, !url.pathExtension.isEmpty {
-                let safariViewController = SFSafariViewController(url: url)
-                navigationController().present(safariViewController, animated: true)
-            } else {
-                UIApplication.shared.open(url)
-            }
-
-            decisionHandler(.cancel)
-        } else {
-            decisionHandler(.allow)
-        }
-    }
-}
-
 extension SceneDelegate: WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let confirm = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         confirm.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in completionHandler(false) })
-        confirm.addAction(UIAlertAction(title: "OK", style: .default) { _ in completionHandler(true) })
-
-        // JavaScript alerts in Turbo Native
+        confirm.addAction(UIAlertAction(title: "OK", style: .default) { _ in completionHandler(true) })        
         navigationController().present(confirm, animated: true)
     }
 }
