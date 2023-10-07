@@ -2,11 +2,11 @@
   "settings": {},
   "rules": [
     { "patterns": [".*"], "properties": { "uri": "turbo://fragment/web", "pull_to_refresh_enabled": true } },
-    { "patterns": ["/refresh_historical_location"], "properties": { "presentation": "refresh" } },
     { "patterns": ["/recede_historical_location"], "properties": { "presentation": "pop" } },
     { "patterns": ["/resume_historical_location"], "properties": { "presentation": "none" } },
-    { "patterns": ["^/$"], "properties": { "uri": "turbo://fragment/web/home", "presentation": "replace_all" } },
+    { "patterns": ["/refresh_historical_location"], "properties": { "presentation": "refresh" } },
     { "patterns": ["/new$", "/edit$", "/signin$", "/strada-form$"], "properties": { "context": "modal", "uri": "turbo://fragment/web/modal", "pull_to_refresh_enabled": false } },
+    { "patterns": ["^/$"], "properties": { "uri": "turbo://fragment/web/home", "presentation": "replace_all" } },
     { "patterns": ["/numbers$"], "properties": { "uri": "turbo://fragment/numbers", "title": "Numbers" } }
   ]
 }

@@ -5,6 +5,8 @@ import WebKit
 
 final class TurboWebViewController: VisitableViewController, ErrorPresenter, BridgeDestination {
 
+    var pullToRefreshEnabled = true
+
     private lazy var bridgeDelegate: BridgeDelegate = {
         BridgeDelegate(location: visitableURL.absoluteString, destination: self, componentTypes: BridgeComponent.allTypes)
     }()
@@ -19,6 +21,8 @@ final class TurboWebViewController: VisitableViewController, ErrorPresenter, Bri
         super.viewDidLoad()
 
         navigationItem.backButtonTitle = "Back"
+
+        visitableView.allowsPullToRefresh = pullToRefreshEnabled
 
         if presentingViewController != nil {
             navigationItem.leftBarButtonItem = dismissModalButton
@@ -48,6 +52,10 @@ final class TurboWebViewController: VisitableViewController, ErrorPresenter, Bri
     }
 
     // MARK: Visitable
+
+    override func visitableDidRender() {
+        title = title ?? visitableView.webView?.title
+    }
 
     override func visitableDidActivateWebView(_ webView: WKWebView) {
         bridgeDelegate.webViewDidBecomeActive(webView)

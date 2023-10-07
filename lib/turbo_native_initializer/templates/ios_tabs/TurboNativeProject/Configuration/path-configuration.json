@@ -1,11 +1,11 @@
 {
   "settings": {},
   "rules": [
-    { "patterns": ["/refresh_historical_location"], "properties": { "presentation": "refresh", "visitable": false } },
-    { "patterns": ["/recede_historical_location"], "properties": { "presentation": "pop", "visitable": false } },
+    { "patterns": ["/recede_historical_location"], "properties": { "presentation": "back", "visitable": false } },
     { "patterns": ["/resume_historical_location"], "properties": { "presentation": "none", "visitable": false } },
+    { "patterns": ["/refresh_historical_location"], "properties": { "presentation": "refresh", "visitable": false } },
+    { "patterns": ["/new$", "/edit$", "/signin$", "/strada-form$"], "properties": { "presentation": "modal", "pull-to-refresh-enabled": false } },
     { "patterns": ["^/$"], "properties": { "presentation": "replace-all" } },
-    { "patterns": ["/new$", "/edit$", "/signin$", "/strada-form$"], "properties": { "presentation": "modal" } },
     { "patterns": ["/numbers$"], "properties": { "view-controller": "numbers" } }
   ]
 }

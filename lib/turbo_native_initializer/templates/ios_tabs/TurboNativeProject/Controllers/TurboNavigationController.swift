@@ -43,8 +43,8 @@ extension TurboNavigationController {
         return properties["presentation"] as? String == "modal"
     }
 
-    private func isPop(_ properties: PathProperties) -> Bool {
-        return properties["presentation"] as? String == "pop"
+    private func isBack(_ properties: PathProperties) -> Bool {
+        return properties["presentation"] as? String == "back"
     }
 
     private func isRefresh(_ properties: PathProperties) -> Bool {
@@ -71,6 +71,14 @@ extension TurboNavigationController {
         return properties["visitable"] as? Bool ?? true
     }
 
+    private func isPullToRefreshEnabled(_ properties: PathProperties) -> Bool {
+        return properties["pull-to-refresh-enabled"] as? Bool ?? true
+    }
+
+    private func title(from properties: PathProperties) -> String? {
+        return properties["title"] as? String
+    }
+
     private func noticeMessage(from url: URL) -> String? {
         URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.first(where: { $0.name == "notice" })?.value
     }
@@ -90,13 +98,16 @@ extension TurboNavigationController {
             }
         }
 
-        return TurboWebViewController(url: url)
+        let viewController = TurboWebViewController(url: url)
+        viewController.pullToRefreshEnabled = isPullToRefreshEnabled(properties)
+        viewController.title = title(from: properties)
+        return viewController
     }
 
     private func navigate(to viewController: UIViewController, action: VisitAction, properties: PathProperties = [:]) {
         if isModal(properties) {
             present(UINavigationController(rootViewController: viewController), animated: true)
-        } else if isPop(properties) {
+        } else if isBack(properties) {
             popViewController(animated: true)
         } else if isRefresh(properties) {
             session.reload()
