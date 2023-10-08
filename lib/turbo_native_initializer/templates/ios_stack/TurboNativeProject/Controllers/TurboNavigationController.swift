@@ -22,9 +22,14 @@ class TurboNavigationController : UINavigationController {
         }
 
         // - Create view controller appropriate for url/properties
-        // - Navigate to that with the correct presentation
         let viewController = makeViewController(for: url, properties: properties)
-        navigate(to: viewController, action: options.action, properties: properties)
+
+        // - Navigate to that with the correct presentation
+        if session.topmostVisitable?.visitableURL == url {
+            navigate(to: viewController, action: .replace, properties: properties)
+        } else {
+            navigate(to: viewController, action: options.action, properties: properties)
+        }
 
         // Initiate the visit with Turbo
         if isVisitable(properties) {
@@ -77,7 +82,7 @@ extension TurboNavigationController {
 
     private func title(from properties: PathProperties) -> String? {
         return properties["title"] as? String
-    }    
+    }
 
     private func noticeMessage(from url: URL) -> String? {
         URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.first(where: { $0.name == "notice" })?.value
