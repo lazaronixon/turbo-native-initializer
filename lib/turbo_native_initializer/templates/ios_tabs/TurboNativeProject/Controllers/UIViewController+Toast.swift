@@ -2,33 +2,24 @@ import SwiftUI
 
 public extension UIViewController {
     func presentToast(_ message: String) {
-        guard let root = view.window?.rootViewController else { return }
+        guard let window = view.window else { return }
 
-        removeToastViews(from: root)
+        removeToastViews(from: window)
 
         let toastView = ToastView(message: message)
         toastView.translatesAutoresizingMaskIntoConstraints = false
 
-        root.view.addSubview(toastView)
+        window.addSubview(toastView)
 
         NSLayoutConstraint.activate([
-            toastView.topAnchor.constraint(equalTo: root.view.safeAreaLayoutGuide.topAnchor),
-            toastView.centerXAnchor.constraint(equalTo: root.view.centerXAnchor)
-        ])
-
-        let widthConstraint = toastView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -10)
-        widthConstraint.priority = .defaultHigh
-
-        let maxWidthConstraint = toastView.widthAnchor.constraint(lessThanOrEqualToConstant: 600)
-        maxWidthConstraint.priority = .required
-
-        NSLayoutConstraint.activate([
-            widthConstraint, maxWidthConstraint
+            toastView.centerXAnchor.constraint(equalTo: window.centerXAnchor),
+            toastView.topAnchor.constraint(equalTo: window.safeAreaLayoutGuide.topAnchor, constant: 2),
+            toastView.widthAnchor.constraint(equalTo: window.safeAreaLayoutGuide.widthAnchor, constant: -10)
         ])
     }
 
-    fileprivate func removeToastViews(from root: UIViewController) {
-        root.view.subviews.filter({ $0 is ToastView }).forEach({ toast in
+    fileprivate func removeToastViews(from window: UIWindow) {
+        window.subviews.filter({ $0 is ToastView }).forEach({ toast in
             toast.removeFromSuperview()
         })
     }
@@ -36,7 +27,7 @@ public extension UIViewController {
 
 public class ToastView: UIView {
 
-    private var duration = 2.5
+    private var duration = 2.0
 
     convenience init(message: String) {
         self.init(frame: .zero)
