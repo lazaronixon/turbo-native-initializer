@@ -19,6 +19,7 @@ final class TurboWebViewController: VisitableViewController, ErrorPresenter, Bri
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bridgeDelegate.onViewDidLoad()
 
         navigationItem.backButtonTitle = "Back"
 
@@ -27,8 +28,6 @@ final class TurboWebViewController: VisitableViewController, ErrorPresenter, Bri
         if presentingViewController != nil {
             navigationItem.leftBarButtonItem = dismissModalButton
         }
-
-        bridgeDelegate.onViewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
