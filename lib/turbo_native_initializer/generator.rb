@@ -22,6 +22,7 @@ module TurboNativeInitializer
         directory "#{project}/TurboNativeProject/Configuration", "#{name}/#{name}/Configuration"
         directory "#{project}/TurboNativeProject/Controllers", "#{name}/#{name}/Controllers"
         directory "#{project}/TurboNativeProject/Delegates", "#{name}/#{name}/Delegates"
+        directory "#{project}/TurboNativeProject/Extensions", "#{name}/#{name}/Extensions"
         directory "#{project}/TurboNativeProject/Resources", "#{name}/#{name}/Resources"
         directory "#{project}/TurboNativeProject/Strada", "#{name}/#{name}/Strada"
         directory "#{project}/TurboNativeProject.xcodeproj", "#{name}/#{name}.xcodeproj"

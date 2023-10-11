@@ -5,10 +5,9 @@ import Turbo
 import Strada
 
 final class SceneDelegate: UIResponder {
-    private static var sharedProcessPool = WKProcessPool()
 
     var window: UIWindow?
-    private let rootURL = <%= name %>.homeURL
+    private let rootURL = TurboNativeProject.homeURL
     private var navigationController: TurboNavigationController!
 
     // MARK: - Setup
@@ -22,7 +21,7 @@ final class SceneDelegate: UIResponder {
     // MARK: - Authentication
 
     private func promptForAuthentication() {
-        let authURL = <%= name %>.signInURL
+        let authURL = TurboNativeProject.signInURL
         let properties = pathConfiguration.properties(for: authURL)
         navigationController.route(url: authURL, options: VisitOptions(), properties: properties)
     }
@@ -42,6 +41,7 @@ final class SceneDelegate: UIResponder {
         let session = Session(webView: webView)
         session.delegate = self
         session.pathConfiguration = pathConfiguration
+
         return session
     }
 

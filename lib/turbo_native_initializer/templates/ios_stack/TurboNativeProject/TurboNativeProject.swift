@@ -1,6 +1,6 @@
 import Foundation
 
-struct <%= name %> {
+struct TurboNativeProject {
     private static let developmentURL = URL(string: "http://localhost:3000")!
     private static let productionURL  = URL(string: "https://turbo-native-demo.glitch.me")!
 
