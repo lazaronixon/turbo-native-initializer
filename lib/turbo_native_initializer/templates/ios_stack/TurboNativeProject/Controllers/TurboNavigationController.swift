@@ -7,10 +7,6 @@ class TurboNavigationController : UINavigationController {
     var session: Session!
     var modalSession: Session!
 
-    override func viewDidLoad() {
-        super.viewDidLoad(); navigationBar.scrollEdgeAppearance = .init()
-    }
-
     func push(url: URL) {
         let properties = session.pathConfiguration?.properties(for: url) ?? [:]
         route(url: url, options: VisitOptions(action: .advance), properties: properties)

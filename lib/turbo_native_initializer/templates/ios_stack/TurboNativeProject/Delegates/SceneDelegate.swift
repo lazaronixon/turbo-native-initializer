@@ -14,6 +14,7 @@ final class SceneDelegate: UIResponder {
 
     private func configureRootViewController() {
         navigationController = window!.rootViewController as? TurboNavigationController
+        navigationController.navigationBar.scrollEdgeAppearance = .init()
         navigationController.session = session
         navigationController.modalSession = modalSession
     }
