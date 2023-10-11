@@ -5,13 +5,11 @@ import Turbo
 import Strada
 
 final class SceneDelegate: UIResponder {
-    private static var sharedProcessPool = WKProcessPool()
-
     var window: UIWindow?
 
-    private let baseURL  = <%= name %>.baseURL
-    private let rootURL1 = <%= name %>.homeURL1
-    private let rootURL2 = <%= name %>.homeURL2
+    private let baseURL  = TurboNativeProject.baseURL
+    private let rootURL1 = TurboNativeProject.homeURL1
+    private let rootURL2 = TurboNativeProject.homeURL2
 
     private var tabBarController: UITabBarController!
     private var navigationController1: TurboNavigationController!
@@ -113,7 +111,7 @@ extension SceneDelegate: WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let confirm = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         confirm.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in completionHandler(false) })
-        confirm.addAction(UIAlertAction(title: "OK", style: .default) { _ in completionHandler(true) })        
+        confirm.addAction(UIAlertAction(title: "OK", style: .default) { _ in completionHandler(true) })
         navigationController().present(confirm, animated: true)
     }
 }

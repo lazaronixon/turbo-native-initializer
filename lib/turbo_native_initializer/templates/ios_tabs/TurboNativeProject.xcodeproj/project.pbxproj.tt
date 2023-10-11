@@ -105,11 +105,12 @@
 		5DCC50D22A959DF900B529A0 /* <%= name %> */ = {
 			isa = PBXGroup;
 			children = (
+				5DD38FFC2AD659BC00EA0059 /* Extensions */,
 				5D8AB2F82ABC117400C6A82F /* Strada */,
-				5D2FA5CD2A9DB1AB001AF2F1 /* Configuration */,
 				5DCC50F42A95AC4E00B529A0 /* Controllers */,
 				5DCC50FB2A95B55200B529A0 /* Delegates */,
 				5DCC51072A95CCEE00B529A0 /* Resources */,
+				5D2FA5CD2A9DB1AB001AF2F1 /* Configuration */,
 				5DCC50F22A95A7E600B529A0 /* <%= name %>.swift */,
 			);
 			path = <%= name %>;
@@ -118,10 +119,8 @@
 		5DCC50F42A95AC4E00B529A0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5D8AB2FD2ABC119900C6A82F /* WKWebViewConfiguration+App.swift */,
-				5D0735D32AC514F800AC547A /* UIViewController+Toast.swift */,
-				5DCC50ED2A95A27600B529A0 /* ErrorPresenter.swift */,
 				5DCC50E72A95A0D900B529A0 /* TurboNavigationController.swift */,
+				5DCC50ED2A95A27600B529A0 /* ErrorPresenter.swift */,
 				5DCC50D72A959DF900B529A0 /* TurboWebViewController.swift */,
 				5DDD58802AA9A8BE00FAC961 /* NumbersViewController.swift */,
 			);
@@ -145,6 +144,15 @@
 				5D0D86212A9AA70500A525E9 /* Main.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5DD38FFC2AD659BC00EA0059 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5D0735D32AC514F800AC547A /* UIViewController+Toast.swift */,
+				5D8AB2FD2ABC119900C6A82F /* WKWebViewConfiguration+App.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

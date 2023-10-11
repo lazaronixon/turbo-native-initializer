@@ -9,7 +9,7 @@ class TurboNavigationController : UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad(); navigationBar.scrollEdgeAppearance = .init()
-    }    
+    }
 
     func push(url: URL) {
         let properties = session.pathConfiguration?.properties(for: url) ?? [:]
