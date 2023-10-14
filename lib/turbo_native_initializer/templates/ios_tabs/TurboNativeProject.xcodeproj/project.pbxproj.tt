@@ -65,25 +65,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5D2FA5CD2A9DB1AB001AF2F1 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				5DCC50E12A959DFA00B529A0 /* Info.plist */,
-				5DCC50E92A95A19600B529A0 /* path-configuration.json */,
-			);
-			path = Configuration;
-			sourceTree = "<group>";
-		};
 		5D8AB2F82ABC117400C6A82F /* Strada */ = {
 			isa = PBXGroup;
 			children = (
 				5D8AB2FA2ABC117F00C6A82F /* BridgeComponent+App.swift */,
-				5D8AB2F92ABC117F00C6A82F /* FormComponent.swift */,
-				5D1F2EC02ABEB12300B2819A /* NavButtonComponent.swift */,
 				5D2381402AC53D8900FABA1F /* FlashMessageComponent.swift */,
+				5D8AB2F92ABC117F00C6A82F /* FormComponent.swift */,
 				5DA9C9342AC874D200FEA7E6 /* MenuComponent.swift */,
+				5D1F2EC02ABEB12300B2819A /* NavButtonComponent.swift */,
 			);
 			path = Strada;
+			sourceTree = "<group>";
+		};
+		5DB1DBA12ADA1BF1008B0141 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5DCC50DE2A959DFA00B529A0 /* LaunchScreen.storyboard */,
+				5D0D86212A9AA70500A525E9 /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5DCC50C72A959DF800B529A0 = {
@@ -105,12 +105,12 @@
 		5DCC50D22A959DF900B529A0 /* <%= name %> */ = {
 			isa = PBXGroup;
 			children = (
-				5DD38FFC2AD659BC00EA0059 /* Extensions */,
-				5D8AB2F82ABC117400C6A82F /* Strada */,
 				5DCC50F42A95AC4E00B529A0 /* Controllers */,
 				5DCC50FB2A95B55200B529A0 /* Delegates */,
+				5DD38FFC2AD659BC00EA0059 /* Extensions */,
 				5DCC51072A95CCEE00B529A0 /* Resources */,
-				5D2FA5CD2A9DB1AB001AF2F1 /* Configuration */,
+				5D8AB2F82ABC117400C6A82F /* Strada */,
+				5DB1DBA12ADA1BF1008B0141 /* Views */,
 				5DCC50F22A95A7E600B529A0 /* <%= name %>.swift */,
 			);
 			path = <%= name %>;
@@ -119,10 +119,10 @@
 		5DCC50F42A95AC4E00B529A0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DCC50E72A95A0D900B529A0 /* TurboNavigationController.swift */,
 				5DCC50ED2A95A27600B529A0 /* ErrorPresenter.swift */,
-				5DCC50D72A959DF900B529A0 /* TurboWebViewController.swift */,
 				5DDD58802AA9A8BE00FAC961 /* NumbersViewController.swift */,
+				5DCC50E72A95A0D900B529A0 /* TurboNavigationController.swift */,
+				5DCC50D72A959DF900B529A0 /* TurboWebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -140,8 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				5DCC50DC2A959DFA00B529A0 /* Assets.xcassets */,
-				5DCC50DE2A959DFA00B529A0 /* LaunchScreen.storyboard */,
-				5D0D86212A9AA70500A525E9 /* Main.storyboard */,
+				5DCC50E12A959DFA00B529A0 /* Info.plist */,
+				5DCC50E92A95A19600B529A0 /* path-configuration.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -396,7 +396,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = <%= name %>/Configuration/Info.plist;
+				INFOPLIST_FILE = <%= name %>/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -423,7 +423,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = <%= name %>/Configuration/Info.plist;
+				INFOPLIST_FILE = <%= name %>/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -479,7 +479,7 @@
 			repositoryURL = "https://github.com/hotwired/turbo-ios";
 			requirement = {
 				kind = exactVersion;
-				version = 7.0.0;
+				version = 7.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
