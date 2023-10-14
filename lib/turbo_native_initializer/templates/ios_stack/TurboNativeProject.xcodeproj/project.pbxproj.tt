@@ -69,21 +69,12 @@
 			isa = PBXGroup;
 			children = (
 				5D281BB32ABC0CB0001CE599 /* BridgeComponent+App.swift */,
-				5D281BB52ABC0CB9001CE599 /* FormComponent.swift */,
-				5D1F2EC02ABEB12300B2819A /* NavButtonComponent.swift */,
 				5D91C53F2AC538960046D872 /* FlashMessageComponent.swift */,
+				5D281BB52ABC0CB9001CE599 /* FormComponent.swift */,
 				5DA9C92E2AC7E38100FEA7E6 /* MenuComponent.swift */,
+				5D1F2EC02ABEB12300B2819A /* NavButtonComponent.swift */,
 			);
 			path = Strada;
-			sourceTree = "<group>";
-		};
-		5D2FA5CD2A9DB1AB001AF2F1 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				5DCC50E12A959DFA00B529A0 /* Info.plist */,
-				5DCC50E92A95A19600B529A0 /* path-configuration.json */,
-			);
-			path = Configuration;
 			sourceTree = "<group>";
 		};
 		5DAD248F2AD6533E0082D23D /* Extensions */ = {
@@ -114,12 +105,12 @@
 		5DCC50D22A959DF900B529A0 /* <%= name %> */ = {
 			isa = PBXGroup;
 			children = (
-				5DAD248F2AD6533E0082D23D /* Extensions */,
-				5D281BB22ABC0C8F001CE599 /* Strada */,
 				5DCC50F42A95AC4E00B529A0 /* Controllers */,
 				5DCC50FB2A95B55200B529A0 /* Delegates */,
+				5DAD248F2AD6533E0082D23D /* Extensions */,
 				5DCC51072A95CCEE00B529A0 /* Resources */,
-				5D2FA5CD2A9DB1AB001AF2F1 /* Configuration */,
+				5D281BB22ABC0C8F001CE599 /* Strada */,
+				5DF25B382ADA0DF40046C704 /* Views */,
 				5DCC50F22A95A7E600B529A0 /* <%= name %>.swift */,
 			);
 			path = <%= name %>;
@@ -128,10 +119,10 @@
 		5DCC50F42A95AC4E00B529A0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DCC50E72A95A0D900B529A0 /* TurboNavigationController.swift */,
 				5DCC50ED2A95A27600B529A0 /* ErrorPresenter.swift */,
-				5DCC50D72A959DF900B529A0 /* TurboWebViewController.swift */,
 				5DDD58802AA9A8BE00FAC961 /* NumbersViewController.swift */,
+				5DCC50E72A95A0D900B529A0 /* TurboNavigationController.swift */,
+				5DCC50D72A959DF900B529A0 /* TurboWebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -149,10 +140,19 @@
 			isa = PBXGroup;
 			children = (
 				5DCC50DC2A959DFA00B529A0 /* Assets.xcassets */,
+				5DCC50E12A959DFA00B529A0 /* Info.plist */,
+				5DCC50E92A95A19600B529A0 /* path-configuration.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5DF25B382ADA0DF40046C704 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				5DCC50DE2A959DFA00B529A0 /* LaunchScreen.storyboard */,
 				5D0D86212A9AA70500A525E9 /* Main.storyboard */,
 			);
-			path = Resources;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,7 +398,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = <%= name %>/Configuration/Info.plist;
+				INFOPLIST_FILE = <%= name %>/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -425,7 +425,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = <%= name %>/Configuration/Info.plist;
+				INFOPLIST_FILE = <%= name %>/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -481,7 +481,7 @@
 			repositoryURL = "https://github.com/hotwired/turbo-ios";
 			requirement = {
 				kind = exactVersion;
-				version = 7.0.0;
+				version = 7.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

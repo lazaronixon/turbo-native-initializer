@@ -55,8 +55,7 @@ final class SceneDelegate: UIResponder {
 
 extension SceneDelegate: UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = scene as? UIWindowScene else { return }
-
+        guard let _ = (scene as? UIWindowScene) else { return }
         configureRootViewController()
         navigationController.route(url: rootURL, options: VisitOptions(action: .replace), properties: [:])
     }

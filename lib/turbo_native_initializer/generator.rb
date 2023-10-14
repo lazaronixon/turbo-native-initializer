@@ -19,12 +19,12 @@ module TurboNativeInitializer
     def copy_template_files
       case options.platform
       when "ios"
-        directory "#{project}/TurboNativeProject/Configuration", "#{name}/#{name}/Configuration"
         directory "#{project}/TurboNativeProject/Controllers", "#{name}/#{name}/Controllers"
         directory "#{project}/TurboNativeProject/Delegates", "#{name}/#{name}/Delegates"
         directory "#{project}/TurboNativeProject/Extensions", "#{name}/#{name}/Extensions"
         directory "#{project}/TurboNativeProject/Resources", "#{name}/#{name}/Resources"
         directory "#{project}/TurboNativeProject/Strada", "#{name}/#{name}/Strada"
+        directory "#{project}/TurboNativeProject/Views", "#{name}/#{name}/Views"
         directory "#{project}/TurboNativeProject.xcodeproj", "#{name}/#{name}.xcodeproj"
         template  "#{project}/TurboNativeProject/TurboNativeProject.swift", "#{name}/#{name}/#{name}.swift"
       when "android"
