@@ -122,7 +122,9 @@ extension TurboNavigationController {
             popToRootViewController(animated: true)
         } else if isReplaceAll(properties) {
             setViewControllers([viewController], animated: false)
-        } else if isReplace(properties) || action == .replace {
+        } else if isReplace(properties) {
+            setViewControllers(Array(viewControllers.dropLast()) + [viewController], animated: false)
+        } else if action == .replace {
             setViewControllers(Array(viewControllers.dropLast()) + [viewController], animated: false)
         } else {
             pushViewController(viewController, animated: true)
