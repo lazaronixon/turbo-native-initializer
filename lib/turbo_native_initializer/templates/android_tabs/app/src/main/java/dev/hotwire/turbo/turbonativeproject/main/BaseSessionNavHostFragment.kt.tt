@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import dev.hotwire.strada.Bridge
 import dev.hotwire.turbo.config.TurboPathConfiguration
 import <%= package_name %>.features.native.NumbersFragment
+import <%= package_name %>.features.web.WebBottomSheetFragment
 import <%= package_name %>.features.web.WebFragment
 import <%= package_name %>.features.web.WebHomeFragment
 import <%= package_name %>.features.web.WebModalFragment
@@ -17,7 +18,13 @@ abstract class BaseSessionNavHostFragment : TurboSessionNavHostFragment() {
         get() = listOf()
 
     override val registeredFragments: List<KClass<out Fragment>>
-        get() = listOf(WebFragment::class, WebHomeFragment::class, WebModalFragment::class, NumbersFragment::class)
+        get() = listOf(
+            WebFragment::class,
+            WebHomeFragment::class,
+            WebModalFragment::class,
+            WebBottomSheetFragment::class,
+            NumbersFragment::class
+        )
 
     override val pathConfigurationLocation: TurboPathConfiguration.Location
         get() = TurboPathConfiguration.Location(assetFilePath = "json/configuration.json")
