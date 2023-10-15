@@ -8,7 +8,7 @@ A turbo native project generator for iOS and Android.
 - Added SwiftUI numbers example screen. (iOS)
 - Added Jetpack Compose numbers example screen. (Android)
 - Added UIAlertController to handle `data-turbo-confirm`. (iOS)
-- Added presentations `pop`, `refresh`, `none`, `replace`, `clear-all`, and `replace-all`. (iOS)
+- Added presentations `back`, `refresh`, `none`, `replace`, `clear-all`, and `replace-all`. (iOS)
 - Added `visitable` property in order to avoid visits. (iOS)
 - Added support for tab navigation. (iOS/Android)
 - Added support for flash messages. (iOS/Android)
