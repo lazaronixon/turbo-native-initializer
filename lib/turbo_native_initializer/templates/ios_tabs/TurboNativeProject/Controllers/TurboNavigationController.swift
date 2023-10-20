@@ -9,7 +9,7 @@ class TurboNavigationController : UINavigationController {
 
     func push(url: URL) {
         let properties = session.pathConfiguration?.properties(for: url) ?? [:]
-        route(url: url, options: VisitOptions(action: .advance), properties: properties)
+        route(url: url, options: .init(action: .advance), properties: properties)
     }
 
     func route(url: URL, options: VisitOptions, properties: PathProperties) {
@@ -123,9 +123,9 @@ extension TurboNavigationController {
         } else if isReplaceAll(properties) {
             setViewControllers([viewController], animated: false)
         } else if isReplace(properties) {
-            setViewControllers(Array(viewControllers.dropLast()) + [viewController], animated: false)
+            setViewControllers(viewControllers.dropLast() + [viewController], animated: false)
         } else if action == .replace {
-            setViewControllers(Array(viewControllers.dropLast()) + [viewController], animated: false)
+            setViewControllers(viewControllers.dropLast() + [viewController], animated: false)
         } else {
             pushViewController(viewController, animated: true)
         }

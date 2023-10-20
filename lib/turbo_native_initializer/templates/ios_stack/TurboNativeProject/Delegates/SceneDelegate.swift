@@ -98,8 +98,8 @@ extension SceneDelegate: SessionDelegate {
 extension SceneDelegate: WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let confirm = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        confirm.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in completionHandler(false) })
-        confirm.addAction(UIAlertAction(title: "OK", style: .default) { _ in completionHandler(true) })
+        confirm.addAction(.init(title: "Cancel", style: .cancel) { _ in completionHandler(false) })
+        confirm.addAction(.init(title: "OK", style: .default) { _ in completionHandler(true) })
         navigationController.present(confirm, animated: true)
     }
 }
