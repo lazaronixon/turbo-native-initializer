@@ -13,10 +13,12 @@ final class SceneDelegate: UIResponder {
     // MARK: - Setup
 
     private func configureRootViewController() {
-        navigationController = window!.rootViewController as? TurboNavigationController
-        navigationController.navigationBar.scrollEdgeAppearance = .init()
+        UINavigationBar.appearance().scrollEdgeAppearance = .init()
+
+        navigationController = TurboNavigationController()
         navigationController.session = session
         navigationController.modalSession = modalSession
+        window!.rootViewController = navigationController
     }
 
     // MARK: - Authentication

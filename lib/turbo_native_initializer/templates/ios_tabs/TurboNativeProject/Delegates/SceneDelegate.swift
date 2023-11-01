@@ -22,18 +22,24 @@ final class SceneDelegate: UIResponder {
     // MARK: - Setup
 
     private func configureRootViewController() {
-        tabBarController = window!.rootViewController as? UITabBarController
-        tabBarController.tabBar.scrollEdgeAppearance = .init()
+        UINavigationBar.appearance().scrollEdgeAppearance = .init()
 
-        navigationController1 = tabBarController.viewControllers![0] as? TurboNavigationController
-        navigationController1.navigationBar.scrollEdgeAppearance = .init()
+        navigationController1 = TurboNavigationController()
+        navigationController1.tabBarItem = .init(title: nil, image: .init(systemName: "house"), tag: 0)
         navigationController1.session = session1
         navigationController1.modalSession = modalSession
 
-        navigationController2 = tabBarController.viewControllers![1] as? TurboNavigationController
-        navigationController2.navigationBar.scrollEdgeAppearance = .init()
+        navigationController2 = TurboNavigationController()
+        navigationController2.tabBarItem = .init(title: nil, image: .init(systemName: "house"), tag: 1)
         navigationController2.session = session2
         navigationController2.modalSession = modalSession
+
+        UITabBar.appearance().scrollEdgeAppearance = .init()
+
+        tabBarController = UITabBarController()
+        tabBarController.viewControllers = [navigationController1, navigationController2]
+
+        window!.rootViewController = tabBarController
     }
 
     // MARK: - Sessions
