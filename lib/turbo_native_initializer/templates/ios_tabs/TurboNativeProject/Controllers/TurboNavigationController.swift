@@ -105,7 +105,7 @@ extension TurboNavigationController {
 
         let viewController = TurboWebViewController(url: url)
         viewController.pullToRefreshEnabled = isPullToRefreshEnabled(properties)
-        viewController.title = title(from: properties)
+        viewController.navigationItem.title = title(from: properties)
         return viewController
     }
 

@@ -53,7 +53,7 @@ final class TurboWebViewController: VisitableViewController, ErrorPresenter, Bri
     // MARK: Visitable
 
     override func visitableDidRender() {
-        title = title ?? visitableView.webView?.title
+        navigationItem.title = navigationItem.title ?? visitableView.webView?.title
     }
 
     override func visitableDidActivateWebView(_ webView: WKWebView) {
